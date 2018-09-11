@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "112834186164",
+    "firebase_url": "https://keep-the-glow-2bd87.firebaseio.com",
+    "project_id": "keep-the-glow-2bd87",
+    "storage_bucket": "keep-the-glow-2bd87.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112834186164:android:fd0ff967bb14ce39",
+        "android_client_info": {
+          "package_name": "com.keeptheglow.ktg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112834186164-d06ahcv57a0dj496egrgpn3n9i4elg73.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr0h0JAgKFDZPmhXSSmu89Q-EcUblYr7c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
