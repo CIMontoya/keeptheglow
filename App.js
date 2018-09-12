@@ -1,8 +1,11 @@
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import { StyleSheet, Platform, Image, Text, View, ScrollView } from 'react-native'
 import Styles from './components/styles.js'
 import { SwitchNavigator } from 'react-navigation'
 import firebase from 'react-native-firebase'
+import store from './store.js'
+import { Provider } from 'react-redux'
+
 
 //screens
 import Loader from './components/screens/loader.js'
@@ -11,23 +14,26 @@ import Login from './components/screens/auth_login.js'
 import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 
-// resusable
-import NavItem from './components/reusable/navItem.js'
-import BottomNav from './components/reusable/navItem.js'
-
-const App = SwitchNavigator(
+const RootStack = SwitchNavigator(
   {
     Loader,
     Signup,
     Login,
     User,
-    Settings,
-    NavItem,
-    BottomNav
+    Settings
   },
   {
     initialRouteName: 'Loader'
   }
 )
 
-export default App
+export default class App extends Component {
+
+  render() {
+    return (
+			<Provider store={store}>
+				<RootStack />
+		  </Provider>
+		)
+  }
+}

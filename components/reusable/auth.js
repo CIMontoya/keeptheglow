@@ -19,12 +19,6 @@ t.form.Form.stylesheet.controlLabel.normal.display = 'none'
 
 var options = {
   fields: {
-    name: {
-      label: 'Name',
-      attrs: {
-        placeholder: 'Johnny Appleseed'
-      }
-    },
     password: {
       password: true,
       secureTextEntry: true
@@ -45,34 +39,6 @@ class AuthForm extends Component {
   static navigationOptions = {
    header: null
  }
-
-  onSubmit = () => {
-    if(this.props.press === 'Signup'){
-      const value = this._form.getValue()
-      const { email, password } = value
-      firebase
-        .auth()
-        .createUserAndRetrieveDataWithEmailAndPassword(email, password)
-          .then(() => console.log('Signed up'))
-          .catch(error => console.log('signup failed'))
-    }
-    if(this.props.press === 'Login'){
-      const value = this._form.getValue()
-      console.log("value", value)
-      const { email, password } = value
-      firebase
-        .auth()
-        .signInWithEmailAndPassword(email, password)
-        .then(() => console.log('logged in'))
-        .catch(error => console.log('login failed', error))
-    }
-    if(this.props.press === 'AddPartner'){
-
-    }
-    if(this.props.press === 'EditAccount'){
-
-    }
-  }
 
   render() {
     return (
