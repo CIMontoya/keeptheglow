@@ -17,7 +17,6 @@ class Settings extends Component {
     firebase
     .auth().signOut().then(function(){
       console.log('Signed Out')
-      this.props.navigation.navigate('Login')
     }, function(error){
       console.error('Sign Out Error', error)
     })

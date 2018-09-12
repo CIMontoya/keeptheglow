@@ -13,6 +13,7 @@ class NavItem extends Component {
     return (
       <TouchableOpacity
         style={Styles.navItem}
+        onPress={()=>this.props.nav(this.props.press)}
       >
         <Image
           style={Styles.navIcon}

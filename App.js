@@ -11,16 +11,22 @@ import Login from './components/screens/auth_login.js'
 import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 
+// resusable
+import NavItem from './components/reusable/navItem.js'
+import BottomNav from './components/reusable/navItem.js'
+
 const App = SwitchNavigator(
   {
     Loader,
     Signup,
     Login,
     User,
-    Settings
+    Settings,
+    NavItem,
+    BottomNav
   },
   {
-    initialRouteName: 'Signup'
+    initialRouteName: 'Loader'
   }
 )
 
