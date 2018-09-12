@@ -22,6 +22,7 @@ class Login extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <AuthForm
         header='Login'
@@ -30,6 +31,7 @@ class Login extends Component {
         buttonText='Login'
         toggle={true}
         press='Login'
+        nav={navigate}
       />
     )
   }

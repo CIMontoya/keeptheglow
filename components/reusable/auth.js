@@ -53,7 +53,7 @@ class AuthForm extends Component {
       firebase
         .auth()
         .createUserAndRetrieveDataWithEmailAndPassword(email, password)
-          .then(() => this.props.navigation.navigate('User'))
+          .then(() => console.log('Signed up'))
           .catch(error => console.log('signup failed'))
     }
     if(this.props.press === 'Login'){
@@ -62,7 +62,7 @@ class AuthForm extends Component {
       const { email, password } = value
       firebase
         .auth()
-        .signInAndRetrieveDataWithEmailAndPassword(email, password)
+        .signInWithEmailAndPassword(email, password)
         .then(() => console.log('logged in'))
         .catch(error => console.log('login failed', error))
     }
@@ -102,9 +102,12 @@ class AuthForm extends Component {
             />
             <View style={Styles.spacerMedium}></View>
 
-            {this.props.toggle ? <TouchableOpacity>
+            {this.props.toggle ? this.props.press === 'Signup' ? <TouchableOpacity
+              onPress={()=>this.props.nav('Login')}>
+               <Text>Already have an account? Login.</Text>
+            </TouchableOpacity> : <TouchableOpacity onPress={()=>this.props.nav('Signup')}>
                <Text>Don't have an account? Signup.</Text>
-            </TouchableOpacity> : <View/>}
+            </TouchableOpacity>  : <View/>}
 
           </View>
         </View>

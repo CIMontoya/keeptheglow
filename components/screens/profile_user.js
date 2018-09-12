@@ -66,6 +66,7 @@ class User extends Component {
   render() {
 
     const { currentUser } = this.state
+    const { navigate } = this.props.navigation
 
     return (
       <View style={Styles.container}>
@@ -132,7 +133,8 @@ class User extends Component {
               <ButtonElement/>
             </View>
         </View>
-        <BottomNav/>
+        <BottomNav
+          nav={navigate}/>
       </View>
     )
   }
