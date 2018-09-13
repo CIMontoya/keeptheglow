@@ -7,15 +7,17 @@ class ButtonElement extends Component {
 
   constructor(props){
     super(props)
+
   }
 
   render() {
+    console.log("props:", this.props)
     return (
       <Button
         style={Styles.buttonText}
         containerStyle={Styles.buttonBox}
         onPress={() => this.props.press()}
-      >{this.props.buttonText}
+      >{this.props.text}
       </Button>
     )
   }

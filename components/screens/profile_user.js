@@ -26,50 +26,29 @@ class User extends Component {
     }
   }
 
-  // async componentWillMount() {
-  //   let id = 1
-  //   const response = await fetch(`https://keeptheglow.herokuapp.com/api/users/${id}/feelings`)
-  //   const responseJSON = await response.json()
-  //   const feelings = responseJSON.data
-  //
-  //   let lovedList = feelings.slice(0, 3)
-  //   let unlovedList = feelings.slice(3, 6)
-  //
-  //   let loved_items = []
-  //   let unloved_items = []
-  //
-  //   lovedList.map((feeling) => {
-  //     let obj = {
-  //       id: feeling.id,
-  //       name: feeling.name,
-  //       description: feeling.description
-  //     }
-  //     loved_items.push(obj)
-  //   })
-  //
-  //   unlovedList.map((feeling) => {
-  //     let obj = {
-  //       id: feeling.id,
-  //       name: feeling.name,
-  //       description: feeling.description
-  //     }
-  //     unloved_items.push(obj)
-  //   })
-  //
-  //   this.setState({loved: loved_items, unloved: unloved_items})
-  // }
-
-  componentDidMount(){
+  componentWillMount(){
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
     this.props.setUserData(currentUser && currentUser.email)
-    // console.log("props in profile",this.props)
   }
-
   render() {
+
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
-    console.log("In component", this.props)
+    const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
+    let lovedList
+    if(userFeelings){
+        lovedList = userFeelings.slice(0,3)
+    }
+      console.log("loved", lovedList)
+
+    let unlovedList
+    if(userFeelings){
+        unlovedList = userFeelings.slice(3,6)
+    }
+    console.log("unlovedList", unlovedList)
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -105,8 +84,9 @@ class User extends Component {
           </View>
           <View style={Styles.spacerLarge}></View>
           <View style={Styles.list}>
+          {lovedList ?
             <View style={Styles.listHalf1}>
-              {this.state.loved.map(feeling =>
+              {lovedList.map(feeling =>
                 <View>
                   <ListItem
                     key={feeling.id}
@@ -116,9 +96,11 @@ class User extends Component {
                   <View style={Styles.spacerSmall}></View>
                 </View>
               )}
-            </View>
+            </View> : ""
+          }
+          {unlovedList ?
             <View style={Styles.listHalf2}>
-              {this.state.unloved.map(feeling =>
+              {unlovedList.map(feeling =>
                 <View>
                   <ListItem
                     key={feeling.id}
@@ -128,7 +110,8 @@ class User extends Component {
                   <View style={Styles.spacerSmall}></View>
                 </View>
               )}
-            </View>
+            </View> : ""
+          }
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
@@ -144,7 +127,7 @@ class User extends Component {
 
 const mapStateToProps = state => {
   return {
-    userData: state.user.userData
+    user: state.user.userData
   }
 }
 
