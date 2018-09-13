@@ -14,6 +14,8 @@ import Login from './components/screens/auth_login.js'
 import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 
+console.disableYellowBox = true;
+
 const RootStack = SwitchNavigator(
   {
     Loader,
