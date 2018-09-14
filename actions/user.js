@@ -14,11 +14,10 @@ export const setUserData = (email) => {
       let scores = await scoresResponse.json()
 
       console.log(scores)
-
+      
       dispatch({
         type: GET_USER_SUCCESS,
-        value: userData,
-        scores: scores
+        value: userData
       })
     }
     catch (err) {

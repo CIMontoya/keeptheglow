@@ -37,7 +37,6 @@ class Progress extends Component {
       </View>
 
     )
-
   }
 }
 
@@ -46,4 +45,5 @@ const mapStateToProps = state => {
     userScores: state.user.userScores
   }
 }
+
 export default connect(mapStateToProps)(Progress)

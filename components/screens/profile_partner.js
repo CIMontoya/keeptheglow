@@ -4,12 +4,8 @@ import ButtonElement from '../reusable/button.js'
 import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
-import firebase from 'react-native-firebase'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { setUserData } from '../../actions/user.js'
 
-class User extends Component {
+class Partner extends Component {
 
   static navigationOptions = {
     header: null
@@ -19,53 +15,69 @@ class User extends Component {
     super(props)
 
     this.state = {
-      currentUser: null,
       loved: [],
       unloved: []
     }
   }
 
-  componentWillMount(){
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
-    this.props.setUserData(currentUser && currentUser.email)
+  async componentWillMount() {
+
+    //replace with id data from the store
+    let id = 2
+
+    const response = await fetch(`https://keeptheglow.herokuapp.com/api/users/${2}/feelings`)
+    const responseJSON = await response.json()
+    const feelings = responseJSON.data
+
+    let lovedList = feelings.slice(0, 3)
+    let unlovedList = feelings.slice(3, 6)
+
+    console.log(lovedList)
+
+    let loved_items = []
+    let unloved_items = []
+
+    lovedList.map((feeling) => {
+      let obj = {
+        id: feeling.id,
+        name: feeling.name,
+        description: feeling.description
+      }
+      loved_items.push(obj)
+    })
+
+    unlovedList.map((feeling) => {
+      let obj = {
+        id: feeling.id,
+        name: feeling.name,
+        description: feeling.description
+      }
+      unloved_items.push(obj)
+    })
+
+    this.setState({loved: loved_items, unloved: unloved_items})
   }
 
   render() {
-
-    const { currentUser } = this.state
-    const { navigate } = this.props.navigation
-    const { user, userFeelings, partner, partnerFeelings } = this.props.user
-
-    let lovedList
-    if(userFeelings){
-        lovedList = userFeelings.slice(0,3)
-    }
-
-    let unlovedList
-    if(userFeelings){
-        unlovedList = userFeelings.slice(3,6)
-    }
-
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
           <View style={Styles.listHalf1}>
-            <Text style={Styles.h1}>Hi {currentUser && currentUser.email}!</Text>
+            <Text style={Styles.h1}>Brandon's List</Text>
           </View>
         </View>
         <View style={Styles.body}>
           <View style={Styles.profileToggle}>
+            <TouchableOpacity>
             <Image
-              style={Styles.profilePic}
+              style={Styles.profilePic2}
               source={require('../../assets/img/partner1.jpg')}
             />
-            <TouchableOpacity>
+            </TouchableOpacity>
               <Image
-                style={Styles.profilePic2}
+                style={Styles.profilePic}
                 source={require('../../assets/img/partner2.jpeg')}
               />
-            </TouchableOpacity>
           </View>
           <View style={Styles.hr}></View>
           <View style={Styles.spacerMedium}></View>
@@ -82,9 +94,8 @@ class User extends Component {
           </View>
           <View style={Styles.spacerLarge}></View>
           <View style={Styles.list}>
-          {lovedList ?
             <View style={Styles.listHalf1}>
-              {lovedList.map(feeling =>
+              {this.state.loved.map(feeling =>
                 <View>
                   <ListItem
                     key={feeling.id}
@@ -94,11 +105,9 @@ class User extends Component {
                   <View style={Styles.spacerSmall}></View>
                 </View>
               )}
-            </View> : ""
-          }
-          {unlovedList ?
+            </View>
             <View style={Styles.listHalf2}>
-              {unlovedList.map(feeling =>
+              {this.state.unloved.map(feeling =>
                 <View>
                   <ListItem
                     key={feeling.id}
@@ -108,29 +117,17 @@ class User extends Component {
                   <View style={Styles.spacerSmall}></View>
                 </View>
               )}
-            </View> : ""
-          }
+            </View>
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
-              <ButtonElement onPress = {() => console.log("this worked")}/>
+              <ButtonElement/>
             </View>
         </View>
-        <BottomNav
-          nav={navigate}/>
+        <BottomNav/>
       </View>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    user: state.user.userData
-  }
-}
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  setUserData
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(User)
+export default Partner
