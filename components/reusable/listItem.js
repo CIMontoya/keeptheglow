@@ -12,7 +12,9 @@ class ListItem extends Component {
   render() {
 
     return (
-      <ButtonElement/>
+      <ButtonElement
+        text={this.props.text}
+      />
     )
   }
 }
