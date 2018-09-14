@@ -11,7 +11,6 @@ class ButtonElement extends Component {
   }
 
   render() {
-    console.log("props:", this.props)
     return (
       <Button
         style={Styles.buttonText}

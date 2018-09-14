@@ -10,6 +10,7 @@ import { bindActionCreators } from 'redux'
 import { setUserData } from '../../actions/login.js'
 
 
+
 class User extends Component {
 
   static navigationOptions = {
@@ -26,16 +27,23 @@ class User extends Component {
     }
   }
 
+
   componentWillMount(){
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
     this.props.setUserData(currentUser && currentUser.email)
+
+
   }
+
+
   render() {
 
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
+console.log("user", user)
 
     let lovedList
     if(userFeelings){
@@ -115,7 +123,7 @@ class User extends Component {
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
-              <ButtonElement/>
+              <ButtonElement onPress = {() => console.log("this worked")}/>
             </View>
         </View>
         <BottomNav
@@ -127,12 +135,12 @@ class User extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.userData
+    user: state.user.userData,
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setUserData
+  setUserData,
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(User)
