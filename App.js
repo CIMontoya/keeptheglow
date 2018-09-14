@@ -14,6 +14,7 @@ import Login from './components/screens/login.js'
 import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 import Progress from './components/screens/progress.js'
+import ReceiveFeedback from './components/screens/feedback_receive.js'
 
 console.disableYellowBox = true;
 
@@ -24,7 +25,8 @@ const RootStack = SwitchNavigator(
     Login,
     User,
     Settings,
-    Progress
+    Progress,
+    ReceiveFeedback
   },
   {
     initialRouteName: 'Loader'
