@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { setUserData } from '../../actions/user.js'
 
-
 class User extends Component {
 
   static navigationOptions = {
