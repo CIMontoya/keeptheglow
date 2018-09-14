@@ -23,6 +23,9 @@ class Settings extends Component {
   }
 
   render() {
+
+    const { navigate } = this.props.navigation
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -92,7 +95,8 @@ class Settings extends Component {
               </TouchableOpacity>
             </View>
           </View>
-        <BottomNav/>
+        <BottomNav
+          nav={navigate}/>
       </View>
     )
   }
