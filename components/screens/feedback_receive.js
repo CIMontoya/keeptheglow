@@ -35,14 +35,6 @@ class ReceiveFeedback extends Component {
       <View style={Styles.container}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={Styles.header}>
-            <TouchableOpacity
-              onPress={() => navigate('User1')}
-              >
-              <Image
-                style={Styles.closeButton}
-                source={require('../../assets/img/CloseButton.png')}
-              />
-            </TouchableOpacity>
           </View>
 
           <View style={Styles.body}>

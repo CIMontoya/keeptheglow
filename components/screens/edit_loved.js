@@ -4,7 +4,7 @@ import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select';
 
-class EditList extends Component {
+class EditLoved extends Component {
 
   static navigationOptions = {
    header: null
@@ -142,4 +142,4 @@ class EditList extends Component {
   }
 }
 
-export default EditList
+export default EditLoved

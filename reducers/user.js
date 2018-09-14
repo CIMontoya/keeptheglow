@@ -10,7 +10,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch(action.type) {
     case GET_USER_SUCCESS:
-      return { ...state, userData: action.value }
+      return { ...state, userData: action.user, scores: action.scores }
     case GET_USER_FAILED:
       return action.value
     default:

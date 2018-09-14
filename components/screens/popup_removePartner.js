@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
-import ButtonElement from '../reusable/button.js'
+import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 
 class RemovePartner extends Component {
@@ -37,8 +37,7 @@ class RemovePartner extends Component {
       <Popup
         header='Remove Partner'
         content='Are you sure you want to remove your partner? You will lose access to all feedback they have provided you, as well as their lists. They will also lose your feedback and lists.'
-        buttonText="I'm sure."
-        form={false}
+        buttonText="Remove My Partner"
       />
     )
   }
