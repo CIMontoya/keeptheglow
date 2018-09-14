@@ -29,14 +29,14 @@ class Settings extends Component {
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
-
         </View>
         <View style={Styles.body}>
           <View style={Styles.user}>
             <View style={Styles.userPic}>
               <Image
                 style={Styles.profilePic}
-                source={require('../../assets/img/partner1.jpg')}/>
+                source={require('../../assets/img/partner1.jpg')}
+              />
               <View style={Styles.editPic}></View>
               <View style={Styles.spacerMedium}></View>
               <Text>Replace with name from the store</Text>
@@ -45,7 +45,7 @@ class Settings extends Component {
             <View style={Styles.spacerLarge}></View>
             <TouchableOpacity
               style={Styles.setting}
-            >
+              onPress={()=>navigate('EditLoved')}>
               <Setting text="Loved List"/>
               <Image
                 style={Styles.settingArrow}
@@ -55,7 +55,7 @@ class Settings extends Component {
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
                 style={Styles.setting}
-              >
+                onPress={()=>navigate('EditUnLoved')}>
                 <Setting text="Unloved List"/>
                 <Image
                   style={Styles.settingArrow}
@@ -64,8 +64,7 @@ class Settings extends Component {
               </TouchableOpacity>
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
-                  style={Styles.setting}
-              >
+                  style={Styles.setting}>
                 <Setting text="Username, Email, Password"/>
                 <Image
                   style={Styles.settingArrow}
@@ -77,20 +76,19 @@ class Settings extends Component {
               <View style={Styles.spacerLarge}></View>
               <TouchableOpacity
                 style={Styles.setting}
-              >
+                onPress={()=>navigate('RemovePartner')}>
                 <Setting text="Remove Partner"/>
               </TouchableOpacity>
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
                 style={Styles.setting}
-              >
+                onPress={()=>navigate('DeleteAccount')}>
                 <Setting text="Delete Account"/>
               </TouchableOpacity>
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
                 style={Styles.setting}
-                onPress={this.handleSignout}
-              >
+                onPress={this.handleSignout}>
                 <Setting text="Sign Out"/>
               </TouchableOpacity>
             </View>

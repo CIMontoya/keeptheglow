@@ -12,7 +12,7 @@ const Styles = {
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingRight: 25,
-    paddingTop: 25
+    paddingTop: 15
   },
 
   backHeader : {
@@ -32,8 +32,8 @@ const Styles = {
 /** Elements **/
 
 spacerLarge: {
-  paddingTop: 20,
-  paddingBottom: 20
+  paddingTop: 15,
+  paddingBottom: 15
 },
 
   spacerMedium: {
@@ -271,7 +271,8 @@ spacerLarge: {
     width: 20,
     height: 20,
     marginLeft: 40,
-    marginTop: -10
+    marginTop: -10,
+    backgroundColor: 'pink'
   },
 
   setting: {

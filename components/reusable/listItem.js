@@ -13,8 +13,8 @@ class ListItem extends Component {
 
     return (
       <Button
-        style={Styles.buttonText}
-        containerStyle={Styles.buttonBox}
+        style={Styles.listItemText}
+        containerStyle={Styles.listItemBox}
         onPress={() => this.props.press()}
       >{this.props.text}
       </Button>

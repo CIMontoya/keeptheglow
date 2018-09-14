@@ -15,6 +15,10 @@ import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 import Progress from './components/screens/progress.js'
 import ReceiveFeedback from './components/screens/feedback_receive.js'
+import DeleteAccount from './components/screens/popup_deleteAccount.js'
+import RemovePartner from './components/screens/popup_removePartner.js'
+import EditLoved from './components/screens/edit_loved.js'
+import EditUnLoved from './components/screens/edit_unloved.js'
 
 console.disableYellowBox = true;
 
@@ -26,7 +30,11 @@ const RootStack = SwitchNavigator(
     User,
     Settings,
     Progress,
-    ReceiveFeedback
+    ReceiveFeedback,
+    DeleteAccount,
+    RemovePartner,
+    EditLoved,
+    EditUnLoved
   },
   {
     initialRouteName: 'Loader'
