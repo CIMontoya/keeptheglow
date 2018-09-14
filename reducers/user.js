@@ -1,7 +1,7 @@
 import {
   GET_USER_SUCCESS,
   GET_USER_FAILED
-} from '../actions/login.js'
+} from '../actions/user.js'
 
 const initialState = {
   userData: {}

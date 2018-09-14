@@ -7,7 +7,7 @@ import BottomNav from '../reusable/nav.js'
 import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setUserData } from '../../actions/login.js'
+import { setUserData } from '../../actions/user.js'
 
 
 class User extends Component {
@@ -26,50 +26,11 @@ class User extends Component {
     }
   }
 
-  // async componentWillMount() {
-  //   let id = 1
-  //   const response = await fetch(`https://keeptheglow.herokuapp.com/api/users/${id}/feelings`)
-  //   const responseJSON = await response.json()
-  //   const feelings = responseJSON.data
-  //
-  //   let lovedList = feelings.slice(0, 3)
-  //   let unlovedList = feelings.slice(3, 6)
-  //
-  //   let loved_items = []
-  //   let unloved_items = []
-  //
-  //   lovedList.map((feeling) => {
-  //     let obj = {
-  //       id: feeling.id,
-  //       name: feeling.name,
-  //       description: feeling.description
-  //     }
-  //     loved_items.push(obj)
-  //   })
-  //
-  //   unlovedList.map((feeling) => {
-  //     let obj = {
-  //       id: feeling.id,
-  //       name: feeling.name,
-  //       description: feeling.description
-  //     }
-  //     unloved_items.push(obj)
-  //   })
-  //
-  //   this.setState({loved: loved_items, unloved: unloved_items})
-  // }
-
-  componentDidMount(){
-    const { currentUser } = firebase.auth()
-    this.setState({ currentUser })
-    this.props.setUserData(currentUser && currentUser.email)
-    // console.log("props in profile",this.props)
-  }
-
   render() {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
-    console.log("In component", this.props)
+    // let { userFeelings } = this.props.navigation
+    console.log("props", this.props.user.userFeelings)
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -144,7 +105,7 @@ class User extends Component {
 
 const mapStateToProps = state => {
   return {
-    userData: state.user.userData
+    user: state.user.userData
   }
 }
 

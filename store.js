@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import firebase from 'react-native-firebase'
-import user from './reducers/login.js'
+import user from './reducers/user.js'
 
 const rootReducer = combineReducers({
   user
