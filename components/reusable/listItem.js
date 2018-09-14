@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View } from 'react-native'
-import ButtonElement from './button.js'
+import Button from 'react-native-button'
 import Styles from '../styles.js'
 
 class ListItem extends Component {
@@ -12,9 +12,12 @@ class ListItem extends Component {
   render() {
 
     return (
-      <ButtonElement
-        text={this.props.text}
-      />
+      <Button
+        style={Styles.buttonText}
+        containerStyle={Styles.buttonBox}
+        onPress={() => this.props.press()}
+      >{this.props.text}
+      </Button>
     )
   }
 }

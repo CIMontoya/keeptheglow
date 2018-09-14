@@ -19,7 +19,11 @@ class BottomNav extends Component {
           nav={this.props.nav}/>
         <NavItem
           src={require('../../assets/img/feedback.png')}
-          press='User'
+          press='ReceiveFeedback'
+          nav={this.props.nav}/>
+        <NavItem
+          src={require('../../assets/img/progress.png')}
+          press='Progress'
           nav={this.props.nav}/>
         <NavItem
           src={require('../../assets/img/settings.png')}

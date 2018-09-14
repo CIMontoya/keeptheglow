@@ -71,15 +71,9 @@ class User extends Component {
           <View style={Styles.hr}></View>
           <View style={Styles.spacerMedium}></View>
           <View style={Styles.posNeg}>
-            <Image
-              style={Styles.plusMinus}
-              source={require('../../assets/img/plus.png')}
-            />
+            <Text>Gives</Text>
             <View style={Styles.spacerSlim}></View>
-            <Image
-              style={Styles.plusMinus}
-              source={require('../../assets/img/minus.png')}
-            />
+            <Text>Takes</Text>
           </View>
           <View style={Styles.spacerLarge}></View>
           <View style={Styles.list}>
@@ -114,7 +108,8 @@ class User extends Component {
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
-              <ButtonElement onPress = {() => console.log("this worked")}/>
+              <ButtonElement
+                buttonText="Send Feedback"/>
             </View>
         </View>
         <BottomNav

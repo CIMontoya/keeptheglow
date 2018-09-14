@@ -16,7 +16,7 @@ class ButtonElement extends Component {
         style={Styles.buttonText}
         containerStyle={Styles.buttonBox}
         onPress={() => this.props.press()}
-      >{this.props.text}
+      >{this.props.buttonText}
       </Button>
     )
   }
