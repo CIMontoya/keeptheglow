@@ -3,8 +3,6 @@ import { Text, View } from 'react-native'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { setUserScores } from '../../actions/scores.js'
 
 class Progress extends Component {
 
@@ -13,25 +11,16 @@ class Progress extends Component {
   }
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      currentScores: null,
+    }
   }
 
-  // componentWillMount(){
-
-    // this.setState({ currentUser })
-    // this.props.setUserData(currentUser && currentUser.email)
-    // if(currentUser){
-    //   this.getscores(userData.user[0].id)
-    // }
-
-  // }
-  // getScores = (id) => {this.props.setUserScores(id)}
-  // if(currentUser){
-  //   // this.props.setUserScores(userData.user[0].id)
-  // }
 
   render(){
     const { navigate } = this.props.navigation
+
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -51,14 +40,10 @@ class Progress extends Component {
 
   }
 }
+
 const mapStateToProps = state => {
   return {
     userScores: state.user.userScores
   }
 }
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  setUserScores
-}, dispatch)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Progress)
+export default connect(mapStateToProps)(Progress)

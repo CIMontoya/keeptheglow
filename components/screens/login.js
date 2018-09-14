@@ -6,7 +6,7 @@ import t from 'tcomb-form-native'
 import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setUserData } from '../../actions/login.js'
+import { setUserData } from '../../actions/user.js'
 
 const Form = t.form.Form
 

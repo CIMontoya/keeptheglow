@@ -7,9 +7,7 @@ import BottomNav from '../reusable/nav.js'
 import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setUserData } from '../../actions/login.js'
-
-
+import { setUserData } from '../../actions/user.js'
 
 class User extends Component {
 
@@ -27,15 +25,11 @@ class User extends Component {
     }
   }
 
-
   componentWillMount(){
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
     this.props.setUserData(currentUser && currentUser.email)
-
-
   }
-
 
   render() {
 
@@ -43,19 +37,16 @@ class User extends Component {
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
-console.log("user", user)
-
+console.log("props:", this.props)
     let lovedList
     if(userFeelings){
         lovedList = userFeelings.slice(0,3)
     }
-      console.log("loved", lovedList)
 
     let unlovedList
     if(userFeelings){
         unlovedList = userFeelings.slice(3,6)
     }
-    console.log("unlovedList", unlovedList)
 
     return (
       <View style={Styles.container}>
@@ -135,12 +126,12 @@ console.log("user", user)
 
 const mapStateToProps = state => {
   return {
-    user: state.user.userData,
+    user: state.user.userData
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setUserData,
+  setUserData
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(User)
