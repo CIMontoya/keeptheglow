@@ -32,7 +32,7 @@ class User extends Component {
   }
 
   render() {
-
+    console.log("props", this.props)
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
@@ -50,9 +50,6 @@ class User extends Component {
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
-          <View style={Styles.listHalf1}>
-            <Text style={Styles.h1}>Hi {currentUser && currentUser.email}!</Text>
-          </View>
         </View>
         <View style={Styles.body}>
           <View style={Styles.profileToggle}>
@@ -60,12 +57,6 @@ class User extends Component {
               style={Styles.profilePic}
               source={require('../../assets/img/partner1.jpg')}
             />
-            <TouchableOpacity>
-              <Image
-                style={Styles.profilePic2}
-                source={require('../../assets/img/partner2.jpeg')}
-              />
-            </TouchableOpacity>
           </View>
           <View style={Styles.hr}></View>
           <View style={Styles.spacerMedium}></View>
@@ -120,7 +111,8 @@ class User extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.userData
+    user: state.user.userData,
+    scores: state.user.scores
   }
 }
 

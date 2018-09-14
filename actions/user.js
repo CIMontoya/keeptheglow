@@ -17,7 +17,8 @@ export const setUserData = (email) => {
 
       dispatch({
         type: GET_USER_SUCCESS,
-        value: userData
+        user: userData,
+        scores: scores
       })
     }
     catch (err) {
