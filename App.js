@@ -9,8 +9,8 @@ import { Provider } from 'react-redux'
 
 //screens
 import Loader from './components/screens/loader.js'
-import Signup from './components/screens/auth_signup.js'
-import Login from './components/screens/auth_login.js'
+import Signup from './components/screens/signup.js'
+import Login from './components/screens/login.js'
 import User from './components/screens/profile_user.js'
 import Settings from './components/screens/settings.js'
 import Progress from './components/screens/progress.js'
@@ -27,7 +27,7 @@ const RootStack = SwitchNavigator(
     Progress
   },
   {
-    initialRouteName: 'Progress'
+    initialRouteName: 'Loader'
   }
 )
 
