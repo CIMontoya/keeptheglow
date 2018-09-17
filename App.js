@@ -19,6 +19,7 @@ import DeleteAccount from './components/screens/popup_deleteAccount.js'
 import RemovePartner from './components/screens/popup_removePartner.js'
 import EditLoved from './components/screens/edit_loved.js'
 import EditUnLoved from './components/screens/edit_unloved.js'
+import Intro from './components/screens/intro.js'
 
 console.disableYellowBox = true;
 
@@ -34,7 +35,8 @@ const RootStack = SwitchNavigator(
     DeleteAccount,
     RemovePartner,
     EditLoved,
-    EditUnLoved
+    EditUnLoved,
+    Intro
   },
   {
     initialRouteName: 'Loader'

@@ -40,7 +40,9 @@ class Signup extends Component {
 
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      error: ''
+    }
   }
 
   static navigationOptions = {
@@ -54,7 +56,7 @@ class Signup extends Component {
       .auth()
       .createUserAndRetrieveDataWithEmailAndPassword(email, password)
         .then(() => console.log('Signed up'))
-        .catch(error => console.log('signup failed'))
+        .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -90,6 +92,11 @@ class Signup extends Component {
               onPress={()=>navigate('Login')}>
                <Text>Already have an account? Login.</Text>
             </TouchableOpacity>
+            <View>
+              {this.state.error && <Text style={{ color: 'red' }}>
+                {this.state.error}
+              </Text>}
+            </View>
           </View>
         </View>
       </View>
