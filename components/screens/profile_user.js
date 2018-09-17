@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { CameraRoll, Text, View, Image, TouchableOpacity, TouchableHighlight } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
@@ -8,6 +8,7 @@ import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { setUserData } from '../../actions/user.js'
+import ViewPhotos from './view_photos.js'
 
 class User extends Component {
 
@@ -21,7 +22,9 @@ class User extends Component {
     this.state = {
       currentUser: null,
       loved: [],
-      unloved: []
+      unloved: [],
+      showPhotoGallery: false,
+      photoArray: []
     }
   }
 
@@ -31,20 +34,36 @@ class User extends Component {
     this.props.setUserData(currentUser && currentUser.email)
   }
 
+  getPhotosFromGallery() {
+    CameraRoll.getPhotos({ first: 100 })
+      .then(res => {
+        let photoArray = res.edges;
+        this.setState({ showPhotoGallery: true, photoArray: photoArray })
+      })
+  }
+
   render() {
-    console.log("props", this.props)
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
     let lovedList
+    let unlovedList
+
     if(userFeelings){
-        lovedList = userFeelings.slice(0,3)
+        lovedList = userFeelings.filter(feeling => feeling.is_loved === true)
+    }
+    if(userFeelings){
+        unlovedList = userFeelings.filter(feeling => feeling.is_loved === false)
     }
 
-    let unlovedList
-    if(userFeelings){
-        unlovedList = userFeelings.slice(3,6)
+
+    if(this.state.showPhotoGallery){
+      return (
+        <ViewPhotos
+          photoArray={this.state.photoArray}
+        />
+      )
     }
 
     return (
@@ -53,10 +72,13 @@ class User extends Component {
         </View>
         <View style={Styles.body}>
           <View style={Styles.profileToggle}>
-            <Image
-              style={Styles.profilePic}
-              source={require('../../assets/img/partner1.jpg')}
-            />
+            <TouchableHighlight
+              onPress={() => this.getPhotosFromGallery()}>
+              <Image
+                style={Styles.profilePic}
+                source={require('../../assets/img/partner1.jpg')}
+              />
+            </TouchableHighlight>
           </View>
           <View style={Styles.hr}></View>
           <View style={Styles.spacerMedium}></View>
