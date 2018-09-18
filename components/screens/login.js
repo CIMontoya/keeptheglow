@@ -90,11 +90,10 @@ class Login extends Component {
               onPress={()=>navigate('Signup')}>
                <Text>Don't have an account? Signup.</Text>
             </TouchableOpacity>
-            <View>
+            <View style={Styles.spacerMedium}></View>
               {this.state.error && <Text style={{ color: 'red' }}>
                 {this.state.error}
               </Text>}
-            </View>
           </View>
         </View>
       </View>
