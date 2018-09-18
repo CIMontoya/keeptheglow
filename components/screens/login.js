@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import Styles from '../styles.js'
 import t from 'tcomb-form-native'
@@ -15,16 +15,25 @@ const Email = t.refinement(t.String, email => {
   return reg.test(email)
 })
 
-t.form.Form.stylesheet.textbox.normal.color = 'black'
+t.form.Form.stylesheet.textbox.normal.color = 'white'
+t.form.Form.stylesheet.textbox.normal.fontFamily = 'Avenir'
+t.form.Form.stylesheet.textbox.normal.fontSize = 20
 t.form.Form.stylesheet.textbox.normal.width = 300
+t.form.Form.stylesheet.textbox.normal.height = 45
+t.form.Form.stylesheet.textbox.normal.borderColor = 'white'
+t.form.Form.stylesheet.textbox.normal.borderWidth = 2.5
 t.form.Form.stylesheet.textbox.normal.borderRadius = 3
 t.form.Form.stylesheet.controlLabel.normal.display = 'none'
 
 var options = {
   fields: {
+    email:{
+      placeholderTextColor: 'white'
+    },
     password: {
       password: true,
-      secureTextEntry: true
+      secureTextEntry: true,
+      placeholderTextColor: 'white'
     }
   },
   auto: 'placeholders'
@@ -59,8 +68,20 @@ class Login extends Component {
   }
 
   render() {
+    const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
     return (
+      <ImageBackground
+        source={pic}
+        style={{
+          width:380,
+          height:670,
+          flex: 1,
+          flexDirection: 1,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
       <View style={Styles.container}>
         <View style={Styles.header}>
         </View>
@@ -68,10 +89,10 @@ class Login extends Component {
           <View style={Styles.popUp}>
             <Text
               style={Styles.h1}>
-              Login
+              Keep The Glow
             </Text>
             <View style={Styles.spacerSmall}></View>
-            <Text>
+            <Text style={Styles.pCenter}>
               Welcome back! Login with your email and password.
             </Text>
             <View style={Styles.spacerLarge}></View>
@@ -85,10 +106,11 @@ class Login extends Component {
               buttonText="Login"
               press={this.handleLogin}
             />
-            <View style={Styles.spacerMedium}></View>
+            <View style={Styles.spacerLarge}></View>
+            <View style={Styles.spacerSmall}></View>
             <TouchableOpacity
               onPress={()=>navigate('Signup')}>
-               <Text>Don't have an account? Signup.</Text>
+               <Text style={Styles.pCenter}>Don't have an account? Signup.</Text>
             </TouchableOpacity>
             <View style={Styles.spacerMedium}></View>
               {this.state.error && <Text style={{ color: 'red' }}>
@@ -97,6 +119,7 @@ class Login extends Component {
           </View>
         </View>
       </View>
+      </ImageBackground>
     )
   }
 }

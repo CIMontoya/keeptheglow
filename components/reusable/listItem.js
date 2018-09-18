@@ -10,13 +10,14 @@ class ListItem extends Component {
   }
 
   render() {
-
+    console.log(this.props)
     return (
       <Button
         style={Styles.listItemText}
         containerStyle={Styles.listItemBox}
-        onPress={() => this.props.press()}
-      >{this.props.text}
+        onPress={() => this.props.press(this.props.screen)}
+      >
+        {this.props.text}
       </Button>
     )
   }

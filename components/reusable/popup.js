@@ -26,10 +26,11 @@ class Popup extends Component {
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={()=>this.props.nav(this.props.screen)}>
             <Image
               style={Styles.closeButton}
-              source={require('../../assets/img/CloseButton.png')}
+              source={require('../../assets/icons/close.png')}
             />
           </TouchableOpacity>
         </View>

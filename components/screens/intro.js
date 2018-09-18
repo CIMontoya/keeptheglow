@@ -22,7 +22,7 @@ class Intro extends Component {
         <View style={Styles.backHeader}>
           <Image
             style={Styles.backButton}
-            source={require('../../assets/img/backButton.png')}
+            source={require('../../assets/icons/back.png')}
           />
         </View>
         <View style={Styles.body}>
@@ -37,7 +37,7 @@ class Intro extends Component {
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_1.png')}
+                  source={require('../../assets/icons/number1.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>
@@ -49,7 +49,7 @@ class Intro extends Component {
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_2.png')}
+                  source={require('../../assets/icons/number2.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>
@@ -61,7 +61,7 @@ class Intro extends Component {
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_3.png')}
+                  source={require('../../assets/icons/number3.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>

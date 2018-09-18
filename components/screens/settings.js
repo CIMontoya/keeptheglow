@@ -35,40 +35,41 @@ class Settings extends Component {
             <View style={Styles.userPic}>
               <Image
                 style={Styles.profilePic}
-                source={require('../../assets/img/partner1.jpg')}
+                source={require('../../assets/icons/avatar.png')}
               />
               <View style={Styles.editPic}></View>
               <View style={Styles.spacerMedium}></View>
-              <Text>Replace with name from the store</Text>
+              <Text>Aimee Roxanne</Text>
             </View>
             <View style={Styles.hr}></View>
             <View style={Styles.spacerLarge}></View>
             <TouchableOpacity
               style={Styles.setting}
               onPress={()=>navigate('EditLoved')}>
-              <Setting text="Loved List"/>
+              <Setting text="Gives List"/>
               <Image
                 style={Styles.settingArrow}
-                source={require('../../assets/img/smRightArrow.png')}
+                source={require('../../assets/icons/smRightArrow.png')}
               />
             </TouchableOpacity>
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
                 style={Styles.setting}
                 onPress={()=>navigate('EditUnLoved')}>
-                <Setting text="Unloved List"/>
+                <Setting text="Takes List"/>
                 <Image
                   style={Styles.settingArrow}
-                  source={require('../../assets/img/smRightArrow.png')}
+                  source={require('../../assets/icons/smRightArrow.png')}
                 />
               </TouchableOpacity>
               <View style={Styles.spacerMedium}></View>
               <TouchableOpacity
-                  style={Styles.setting}>
+                  style={Styles.setting}
+                  onPress={()=>navigate('EditAccount')}>
                 <Setting text="Username, Email, Password"/>
                 <Image
                   style={Styles.settingArrow}
-                  source={require('../../assets/img/smRightArrow.png')}
+                  source={require('../../assets/icons/smRightArrow.png')}
                 />
               </TouchableOpacity>
               <View style={Styles.spacerLarge}></View>

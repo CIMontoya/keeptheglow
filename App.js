@@ -19,6 +19,9 @@ import DeleteAccount from './components/screens/popup_deleteAccount.js'
 import RemovePartner from './components/screens/popup_removePartner.js'
 import EditLoved from './components/screens/edit_loved.js'
 import EditUnLoved from './components/screens/edit_unloved.js'
+import EditAccount from './components/screens/auth_editAccount.js'
+import Gives1 from './components/screens/popup_expandedItem.js'
+import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
 
 console.disableYellowBox = true;
@@ -36,6 +39,9 @@ const RootStack = SwitchNavigator(
     RemovePartner,
     EditLoved,
     EditUnLoved,
+    EditAccount,
+    Gives1,
+    SendFeedback,
     Intro
   },
   {

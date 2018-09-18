@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import Styles from '../styles.js'
 import t from 'tcomb-form-native'
@@ -14,16 +14,18 @@ const Email = t.refinement(t.String, email => {
   return reg.test(email)
 })
 
-t.form.Form.stylesheet.textbox.normal.color = 'black'
-t.form.Form.stylesheet.textbox.normal.width = 300
-t.form.Form.stylesheet.textbox.normal.borderRadius = 3
-t.form.Form.stylesheet.controlLabel.normal.display = 'none'
-
 var options = {
   fields: {
+    name:{
+      placeholderTextColor: 'white'
+    },
+    email:{
+      placeholderTextColor: 'white'
+    },
     password: {
       password: true,
-      secureTextEntry: true
+      secureTextEntry: true,
+      placeholderTextColor: 'white'
     }
   },
   auto: 'placeholders'
@@ -32,8 +34,7 @@ var options = {
 const signup = t.struct({
   name: t.String,
   email: t.String,
-  password: t.String,
-  terms: t.Boolean
+  password: t.String
 })
 
 class Signup extends Component {
@@ -60,8 +61,20 @@ class Signup extends Component {
   }
 
   render() {
+    const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
     return (
+      <ImageBackground
+        source={pic}
+        style={{
+          width:380,
+          height:670,
+          flex: 1,
+          flexDirection: 1,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
       <View style={Styles.container}>
         <View style={Styles.header}>
         </View>
@@ -69,10 +82,10 @@ class Signup extends Component {
           <View style={Styles.popUp}>
             <Text
               style={Styles.h1}>
-              Signup
+              Keep The Glow
             </Text>
             <View style={Styles.spacerSmall}></View>
-            <Text>
+            <Text style={Styles.pCenter}>
               Welcome to Keep The Glow. Signup with your name, email and password.
             </Text>
             <View style={Styles.spacerLarge}></View>
@@ -90,7 +103,7 @@ class Signup extends Component {
 
             <TouchableOpacity
               onPress={()=>navigate('Login')}>
-               <Text>Already have an account? Login.</Text>
+               <Text style={Styles.pCenter}>Already have an account? Login.</Text>
             </TouchableOpacity>
             <View style={Styles.spacerMedium}></View>
               {this.state.error && <Text style={{ color: 'red' }}>
@@ -99,6 +112,7 @@ class Signup extends Component {
           </View>
         </View>
       </View>
+    </ImageBackground>
     )
   }
 }
