@@ -23,9 +23,12 @@ class Popup extends Component {
  }
 
   render() {
+    console.log(this.props)
     return (
       <View style={Styles.container}>
-        <View style={Styles.header}>
+        <View
+          // style={Styles.header}
+          >
           <TouchableOpacity
             onPress={()=>this.props.nav(this.props.screen)}>
             <Image
@@ -36,13 +39,11 @@ class Popup extends Component {
         </View>
         <View style={Styles.body}>
           <View style={Styles.popUp}>
-            <Text
-              style={Styles.h1}>
+            <Text style={Styles.h1}>
               {this.props.header}
             </Text>
             <View style={Styles.spacerMedium}></View>
-            <Text
-              style={Styles.pCenter}>
+            <Text style={Styles.pCenter}>
               {this.props.content}
             </Text>
             {this.props.form ? <Form

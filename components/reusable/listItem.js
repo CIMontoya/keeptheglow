@@ -10,7 +10,7 @@ class ListItem extends Component {
   }
 
   render() {
-    console.log(this.props)
+    // console.log("listItemprops:", this.props)
     return (
       <Button
         style={Styles.listItemText}
