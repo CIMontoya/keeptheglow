@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, TextInput, View, Image } from 'react-native'
+import { Text, TextInput, View, Image, TouchableOpacity } from 'react-native'
 import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select';
@@ -34,13 +34,17 @@ class EditLoved extends Component {
 
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <View style={Styles.container}>
         <View style={Styles.backHeader}>
-          <Image
-            style={Styles.backButton}
-            source={require('../../assets/img/backButton.png')}
-          />
+          <TouchableOpacity
+            onPress={()=>navigate('Settings')}>
+            <Image
+              style={Styles.backButton}
+              source={require('../../assets/icons/back.png')}
+            />
+          </TouchableOpacity>
         </View>
         <View style={Styles.body}>
           <View style={Styles.createList}>
@@ -54,7 +58,7 @@ class EditLoved extends Component {
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_1.png')}
+                  source={require('../../assets/icons/number1.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>
@@ -71,14 +75,14 @@ class EditLoved extends Component {
                 <View style={Styles.sideSpacerSmall}></View>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/RemoveButton.png')}
+                  source={require('../../assets/icons/RemoveButton.png')}
                 />
               </View>
               <View style={Styles.spacerSmall}></View>
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_2.png')}
+                  source={require('../../assets/icons/number2.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>
@@ -95,14 +99,14 @@ class EditLoved extends Component {
                   <View style={Styles.sideSpacerSmall}></View>
                   <Image
                     style={Styles.circle}
-                    source={require('../../assets/img/RemoveButton.png')}
+                    source={require('../../assets/icons/RemoveButton.png')}
                   />
               </View>
               <View style={Styles.spacerSmall}></View>
               <View style={Styles.setting}>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/Circle_3.png')}
+                  source={require('../../assets/icons/number3.png')}
                 />
                 <View style={Styles.sideSpacerSmall}></View>
                 <View style={Styles.buttonBox}>
@@ -119,7 +123,7 @@ class EditLoved extends Component {
                 <View style={Styles.sideSpacerSmall}></View>
                 <Image
                   style={Styles.circle}
-                  source={require('../../assets/img/RemoveButton.png')}
+                  source={require('../../assets/icons/RemoveButton.png')}
                 />
               </View>
             </View>

@@ -66,15 +66,6 @@ class AuthForm extends Component {
               buttonText={this.props.buttonText}
               press={this.onSubmit}
             />
-            <View style={Styles.spacerMedium}></View>
-
-            {this.props.toggle ? this.props.press === 'Signup' ? <TouchableOpacity
-              onPress={()=>this.props.nav('Login')}>
-               <Text>Already have an account? Login.</Text>
-            </TouchableOpacity> : <TouchableOpacity onPress={()=>this.props.nav('Signup')}>
-               <Text>Don't have an account? Signup.</Text>
-            </TouchableOpacity>  : <View/>}
-
           </View>
         </View>
       </View>

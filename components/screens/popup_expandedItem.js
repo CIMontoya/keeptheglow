@@ -3,7 +3,7 @@ import { Text, View, Image, TouchableOpacity } from 'react-native'
 import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 
-class ExpandedItem extends Component {
+class Gives1 extends Component {
 
   constructor(props){
     super(props)
@@ -33,14 +33,16 @@ class ExpandedItem extends Component {
  }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <Popup
-        header='Feeling from store or props'
-        content='Descripion from store or props'
-        form={false}
+        header='Quality Time'
+        content='I need us to spend time together, without any distractions of social media, emails, etc. An opportunity for us to talk and love on each other, like cooking together like we use to.'
+        nav={navigate}
+        screen="User"
       />
     )
   }
 }
 
-export default ExpandedItem
+export default Gives1

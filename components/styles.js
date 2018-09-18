@@ -3,7 +3,7 @@ const Styles = {
   container : {
     flex: 1,
     flexDirection: 'column',
-    backgroundColor: 'white'
+    // backgroundColor: 'white'
   },
 
   header : {
@@ -12,7 +12,7 @@ const Styles = {
     alignItems: 'center',
     justifyContent: 'flex-end',
     paddingRight: 25,
-    paddingTop: 15
+    paddingTop: 10
   },
 
   backHeader : {
@@ -58,7 +58,12 @@ spacerLarge: {
 
   hr: {
     borderTopWidth: 1,
-    borderTopColor: 'black',
+    borderTopColor: 'white',
+  },
+
+  card:{
+    padding: 20,
+    backgroundColor: 'white'
   },
 
   textInput: {
@@ -72,40 +77,59 @@ spacerLarge: {
   },
 
   h1: {
-    color: 'black',
+    color: 'white',
     fontSize: 28,
+    fontFamily: 'Avenir-Black',
+    // fontWeight: '400',
     paddingBottom: 20
   },
 
   h2: {
     color: 'black',
     fontSize: 18,
+    fontFamily: 'Avenir',
     paddingBottom: 10
   },
 
   highlight: {
-    fontWeight: '700'
+    fontWeight: '700',
+    fontFamily: 'Avenir'
   },
 
   pCenter: {
     paddingBottom: 20,
     textAlign: 'center',
     padding: 10,
+    color: 'white',
+    fontFamily: 'Avenir-Heavy',
+    fontSize: 18,
   },
 
   buttonText: {
-    color: '#30E7CE'
+    color: '#4E70BD',
+    fontFamily: 'Avenir-Black',
+    fontSize: 22,
+  },
+
+  link:{
+    textDecorationLine: 'underline',
+    color: '#E0FF4F',
+    fontFamily: 'Avenir-Heavy',
+    fontSize: 14,
   },
 
   buttonBox: {
     backgroundColor: 'white',
-    borderColor: '#30E7CE',
+    borderColor: 'white',
     borderWidth: 2,
     height: 50,
     width: 200,
-    borderRadius: 4,
+    borderRadius: 2,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    shadowOffset:{  width: 4,  height: 4,  },
+    shadowColor: 'black',
+    shadowOpacity: .2,
   },
 
   dropdown: {
@@ -123,7 +147,7 @@ spacerLarge: {
   navigation: {
     flexDirection: 'row',
     borderTopWidth: 1,
-    borderTopColor: 'black',
+    borderTopColor: 'white',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center'
@@ -133,7 +157,8 @@ spacerLarge: {
     flex: 1,
     height: 50,
     borderRightWidth: 1,
-    borderRightColor: 'black',
+    backgroundColor: '#4E70BD',
+    borderRightColor: 'white',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
@@ -141,8 +166,8 @@ spacerLarge: {
 
   navIcon: {
     // flex: 1,
-    width: 75,
-    height: 75
+    width: 70,
+    height: 70
   },
 
   /** Popup Styles **/
@@ -184,8 +209,7 @@ spacerLarge: {
   },
 
   profileToggle: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 40
   },
@@ -215,7 +239,8 @@ spacerLarge: {
 
   listItemText: {
     color: 'white',
-    fontSize: 16
+    fontSize: 16,
+    fontFamily: 'Avenir',
   },
 
   listItemBox: {
@@ -272,7 +297,7 @@ spacerLarge: {
     height: 20,
     marginLeft: 40,
     marginTop: -10,
-    backgroundColor: 'pink'
+    // backgroundColor: 'pink'
   },
 
   setting: {
@@ -342,6 +367,7 @@ spacerLarge: {
   RNPickerSelect: {
     color: 'blue',
     fontSize: 36,
+    fontFamily: 'Avenir'
 
   }
 }

@@ -33,12 +33,14 @@ class DeleteAccount extends Component {
  }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <Popup
         header='Delete Account'
         content='Are you sure you want to delete your account? All of your data will be removed, and your partner will also lose all feedback.'
         buttonText="Delete My Account"
-        // press={}
+        nav={navigate}
+        screen='Settings'
       />
     )
   }

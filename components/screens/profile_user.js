@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
+import Button from 'react-native-button'
 import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
@@ -33,7 +34,6 @@ class User extends Component {
   }
 
   render() {
-    console.log("props", this.props)
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
@@ -48,7 +48,15 @@ class User extends Component {
         unlovedList = userFeelings.slice(3,6)
     }
 
+    const pic = require('../../assets/gradient_dark.png')
     return (
+      <ImageBackground
+        source={pic}
+        style={{
+          width:380,
+          height:670,
+        }}
+      >
       <View style={Styles.container}>
         <View style={Styles.header}>
         </View>
@@ -56,26 +64,27 @@ class User extends Component {
           <View style={Styles.profileToggle}>
             <Image
               style={Styles.profilePic}
-              source={require('../../assets/img/partner1.jpg')}
+              source={require('../../assets/icons/avatar_circle.png')}
             />
+            <View style={Styles.spacerMedium}></View>
+            <Text style={Styles.link}>View Melissa's List</Text>
           </View>
-          <View style={Styles.hr}></View>
-          <View style={Styles.spacerMedium}></View>
-          <View style={Styles.posNeg}>
-            <Text>Gives</Text>
-            <View style={Styles.spacerSlim}></View>
-            <Text>Takes</Text>
-          </View>
+          {/* <View style={Styles.hr}></View> */}
+          <View style={Styles.spacerSmall}></View>
+          <View style={Styles.card}>
           <View style={Styles.spacerLarge}></View>
           <View style={Styles.list}>
           {lovedList ?
             <View style={Styles.listHalf1}>
+              <Text>Gives</Text>
               {lovedList.map(feeling =>
                 <View>
                   <ListItem
                     key={feeling.id}
                     text={feeling.name}
                     description={feeling.description}
+                    press={navigate}
+                    screen='ExpandedItem'
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
@@ -84,6 +93,7 @@ class User extends Component {
           }
           {unlovedList ?
             <View style={Styles.listHalf2}>
+              <Text>Takes</Text>
               {unlovedList.map(feeling =>
                 <View>
                   <ListItem
@@ -99,13 +109,19 @@ class User extends Component {
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
-              <ButtonElement
-                buttonText="Send Feedback"/>
+              <Button
+                style={Styles.buttonText}
+                containerStyle={Styles.buttonBox}
+                onPress={() => navigate('SendFeedback')}
+              >Send Feedback
+              </Button>
             </View>
+        </View>
         </View>
         <BottomNav
           nav={navigate}/>
       </View>
+    </ImageBackground>
     )
   }
 }

@@ -33,11 +33,14 @@ class RemovePartner extends Component {
  }
 
   render() {
+    const { navigate } = this.props.navigation
     return (
       <Popup
         header='Remove Partner'
         content='Are you sure you want to remove your partner? You will lose access to all feedback they have provided you, as well as their lists. They will also lose your feedback and lists.'
         buttonText="Remove My Partner"
+        nav={navigate}
+        screen='Settings'
       />
     )
   }
