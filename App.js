@@ -20,7 +20,13 @@ import RemovePartner from './components/screens/popup_removePartner.js'
 import EditLoved from './components/screens/edit_loved.js'
 import EditUnLoved from './components/screens/edit_unloved.js'
 import EditAccount from './components/screens/auth_editAccount.js'
-import Gives1 from './components/screens/popup_expandedItem.js'
+import Gives0 from './components/screens/gives0.js'
+import Gives1 from './components/screens/gives1.js'
+import Gives2 from './components/screens/gives2.js'
+import Takes0 from './components/screens/takes0.js'
+import Takes1 from './components/screens/takes1.js'
+import Takes2 from './components/screens/takes2.js'
+
 import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
 
@@ -40,7 +46,12 @@ const RootStack = SwitchNavigator(
     EditLoved,
     EditUnLoved,
     EditAccount,
+    Gives0,
     Gives1,
+    Gives2,
+    Takes0,
+    Takes1,
+    Takes2,
     SendFeedback,
     Intro
   },

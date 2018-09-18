@@ -51,12 +51,14 @@ class User extends Component {
     let lovedList
     let unlovedList
 
+
     if(userFeelings){
         lovedList = userFeelings.filter(feeling => feeling.is_loved === true)
     }
     if(userFeelings){
         unlovedList = userFeelings.filter(feeling => feeling.is_loved === false)
     }
+
 
 
     if(this.state.showPhotoGallery){
@@ -68,6 +70,8 @@ class User extends Component {
     }
 
     const pic = require('../../assets/gradient_dark.png')
+
+
     return (
       <ImageBackground
         source={pic}
@@ -97,14 +101,14 @@ class User extends Component {
           {lovedList ?
             <View style={Styles.listHalf1}>
               <Text>Gives</Text>
-              {lovedList.map(feeling =>
+              {lovedList.map((feeling, index) =>
                 <View>
                   <ListItem
                     key={feeling.id}
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen="Gives1"
+                    screen={`Gives${index}`}
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
@@ -114,12 +118,14 @@ class User extends Component {
           {unlovedList ?
             <View style={Styles.listHalf2}>
               <Text>Takes</Text>
-              {unlovedList.map(feeling =>
+              {unlovedList.map((feeling, index) =>
                 <View>
                   <ListItem
                     key={feeling.id}
                     text={feeling.name}
                     description={feeling.description}
+                    press={navigate}
+                    screen={`Takes${index}`}
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
