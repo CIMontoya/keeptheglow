@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, TouchableOpacity } from 'react-native'
 import Button from 'react-native-button'
 import Styles from '../styles.js'
 
@@ -12,13 +12,14 @@ class ListItem extends Component {
   render() {
     console.log(this.props)
     return (
-      <Button
-        style={Styles.listItemText}
-        containerStyle={Styles.listItemBox}
-        onPress={() => this.props.press(this.props.screen)}
-      >
-        {this.props.text}
-      </Button>
+      <TouchableOpacity
+        onPress={() => this.props.press(this.props.screen)}>
+        <View
+          style={Styles.card}>
+          <Text
+            style={Styles.listItemText}>{this.props.text}</Text>
+        </View>
+      </TouchableOpacity>
     )
   }
 }
