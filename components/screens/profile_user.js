@@ -69,7 +69,6 @@ class User extends Component {
             <View style={Styles.spacerMedium}></View>
             <Text style={Styles.link}>View Melissa's List</Text>
           </View>
-          {/* <View style={Styles.hr}></View> */}
           <View style={Styles.spacerSmall}></View>
           <View style={Styles.card}>
           <View style={Styles.spacerLarge}></View>
