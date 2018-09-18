@@ -3,7 +3,7 @@ const Styles = {
   container : {
     flex: 1,
     flexDirection: 'column',
-    // backgroundColor: 'white'
+    backgroundColor: '#F9FBFF'
   },
 
   header : {
@@ -24,25 +24,47 @@ const Styles = {
   },
 
   profileHeader : {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    flex: 2,
+  },
+
+  profileTop: {
+    flex:1,
+    flexDirection:'row',
+    justifyContent: 'space-between',
+    paddingTop: 5
+  },
+
+  profileBottom: {
+    flex:2,
+  },
+
+  profileBody: {
+    flex: 4,
+    flexDirection: 'column',
+    justifyContent:'center',
+    padding: 15,
+  },
+
+  cornerRight: {
+    flexDirection:'column',
+  },
+
+  cornerLeft: {
+    flexDirection:'column',
   },
 
   body : {
     flex: 8,
     flexDirection: 'column',
     padding:20,
-    // backgroundColor: '#F7F7FF'
   },
 
 /** Elements **/
 
-spacerLarge: {
-  paddingTop: 15,
-  paddingBottom: 15
-},
+  spacerLarge: {
+    paddingTop: 15,
+    paddingBottom: 15
+  },
 
   spacerMedium: {
     paddingTop: 10,
@@ -75,7 +97,7 @@ spacerLarge: {
   },
 
   card:{
-    width: 150,
+    width: 165,
     height: 60,
     padding: 20,
     backgroundColor: 'white',
@@ -113,8 +135,15 @@ spacerLarge: {
 
   h2: {
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Avenir',
+    paddingBottom: 10
+  },
+
+  h3: {
+    color: 'black',
+    fontSize: 18,
+    fontFamily: 'Avenir-Black',
     paddingBottom: 10
   },
 
@@ -182,7 +211,7 @@ spacerLarge: {
 
   navigation: {
     flexDirection: 'row',
-    borderTopWidth: 1/2,
+    // borderTopWidth: 1/2,
     // borderTopColor: 'white',
     height: 50,
     justifyContent: 'center',
@@ -248,7 +277,7 @@ spacerLarge: {
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 40,
-    paddingTop: 40
+    paddingTop: 50
   },
 
   posNeg: {
@@ -277,7 +306,7 @@ spacerLarge: {
   listItemText: {
     color: 'black',
     fontSize: 16,
-    fontFamily: 'Avenir',
+    fontFamily: 'AvenirNext-Medium',
   },
 
   listItemBox: {
@@ -292,8 +321,8 @@ spacerLarge: {
   },
 
   profilePic: {
-    height: 120,
-    width: 120,
+    height: 140,
+    width: 140,
     borderRadius: 100/2,
     // shadowRadius:100/2,
     shadowOffset: { width: 3, height: 3},
