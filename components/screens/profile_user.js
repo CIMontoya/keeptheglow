@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native'
+import { CameraRoll, Text, View, Image, TouchableOpacity, TouchableHighlight, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import Button from 'react-native-button'
 import ListItem from '../reusable/listItem.js'
@@ -9,7 +9,7 @@ import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { setUserData } from '../../actions/user.js'
-
+import ViewPhotos from './view_photos.js'
 
 class User extends Component {
 
@@ -23,7 +23,9 @@ class User extends Component {
     this.state = {
       currentUser: null,
       loved: [],
-      unloved: []
+      unloved: [],
+      showPhotoGallery: false,
+      photoArray: []
     }
   }
 
@@ -33,19 +35,36 @@ class User extends Component {
     this.props.setUserData(currentUser && currentUser.email)
   }
 
+  getPhotosFromGallery() {
+    CameraRoll.getPhotos({ first: 100 })
+      .then(res => {
+        let photoArray = res.edges;
+        this.setState({ showPhotoGallery: true, photoArray: photoArray })
+      })
+  }
+
   render() {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
     let lovedList
+    let unlovedList
+
     if(userFeelings){
-        lovedList = userFeelings.slice(0,3)
+        lovedList = userFeelings.filter(feeling => feeling.is_loved === true)
+    }
+    if(userFeelings){
+        unlovedList = userFeelings.filter(feeling => feeling.is_loved === false)
     }
 
-    let unlovedList
-    if(userFeelings){
-        unlovedList = userFeelings.slice(3,6)
+
+    if(this.state.showPhotoGallery){
+      return (
+        <ViewPhotos
+          photoArray={this.state.photoArray}
+        />
+      )
     }
 
     const pic = require('../../assets/gradient_dark.png')
@@ -62,13 +81,15 @@ class User extends Component {
         </View>
         <View style={Styles.body}>
           <View style={Styles.profileToggle}>
+          <TouchableHighlight
+            onPress={() => this.getPhotosFromGallery()}>
             <Image
               style={Styles.profilePic}
               source={require('../../assets/icons/avatar_circle.png')}
             />
+          </TouchableHighlight>>
             <View style={Styles.spacerMedium}></View>
-            <Text style={Styles.link}>View Melissa's List</Text>
-          </View>
+            <Text style={Styles.link}>View Melissa's List</Text>          </View>
           <View style={Styles.spacerSmall}></View>
           <View style={Styles.card}>
           <View style={Styles.spacerLarge}></View>
@@ -83,7 +104,7 @@ class User extends Component {
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen='ExpandedItem'
+                    screen="Gives1"
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>

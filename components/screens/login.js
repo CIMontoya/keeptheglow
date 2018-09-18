@@ -48,7 +48,9 @@ class Login extends Component {
 
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      error: ''
+    }
   }
 
   static navigationOptions = {
@@ -62,7 +64,7 @@ class Login extends Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
         .then(() => console.log('logged in'))
-        .catch(error => console.log('login failed', error))
+        .catch(error => this.setState({ error: error.message }))
   }
 
   render() {
@@ -110,6 +112,10 @@ class Login extends Component {
               onPress={()=>navigate('Signup')}>
                <Text style={Styles.pCenter}>Don't have an account? Signup.</Text>
             </TouchableOpacity>
+            <View style={Styles.spacerMedium}></View>
+              {this.state.error && <Text style={{ color: 'red' }}>
+                {this.state.error}
+              </Text>}
           </View>
         </View>
       </View>

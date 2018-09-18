@@ -11,11 +11,16 @@ class Progress extends Component {
   }
   constructor(props){
     super(props)
-    this.state = {}
+    this.state = {
+      currentScores: null,
+    }
   }
+
 
   render(){
     const { navigate } = this.props.navigation
+
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -32,9 +37,9 @@ class Progress extends Component {
       </View>
 
     )
-
   }
 }
+
 const mapStateToProps = state => {
   return {
     userScores: state.user.userScores
