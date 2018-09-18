@@ -39,11 +39,13 @@ class Popup extends Component {
         </View>
         <View style={Styles.body}>
           <View style={Styles.popUp}>
-            <Text style={Styles.h1}>
+            <Text
+              style={Styles.h1black}>
               {this.props.header}
             </Text>
             <View style={Styles.spacerMedium}></View>
-            <Text style={Styles.pCenter}>
+            <Text
+              style={Styles.pCenterBlack}>
               {this.props.content}
             </Text>
             {this.props.form ? <Form

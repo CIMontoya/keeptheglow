@@ -23,10 +23,18 @@ const Styles = {
     paddingTop: 25
   },
 
+  profileHeader : {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+
   body : {
     flex: 8,
     flexDirection: 'column',
-    padding:20
+    padding:20,
+    // backgroundColor: '#F7F7FF'
   },
 
 /** Elements **/
@@ -56,14 +64,27 @@ spacerLarge: {
     width: 20
   },
 
+  send:{
+    height: 50,
+    width: 50
+  },
+
   hr: {
     borderTopWidth: 1,
     borderTopColor: 'white',
   },
 
   card:{
+    width: 150,
+    height: 60,
     padding: 20,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 2,
+    shadowOffset:{  width: 4,  height: 4,  },
+    shadowColor: 'black',
+    shadowOpacity: .08
   },
 
   textInput: {
@@ -80,7 +101,13 @@ spacerLarge: {
     color: 'white',
     fontSize: 28,
     fontFamily: 'Avenir-Black',
-    // fontWeight: '400',
+    paddingBottom: 20
+  },
+
+  h1black: {
+    color: 'black',
+    fontSize: 28,
+    fontFamily: 'Avenir-Black',
     paddingBottom: 20
   },
 
@@ -102,7 +129,16 @@ spacerLarge: {
     padding: 10,
     color: 'white',
     fontFamily: 'Avenir-Heavy',
-    fontSize: 18,
+    fontSize: 16,
+  },
+
+  pCenterBlack: {
+    paddingBottom: 20,
+    textAlign: 'center',
+    padding: 10,
+    color: 'black',
+    fontFamily: 'Avenir-Heavy',
+    fontSize: 16,
   },
 
   buttonText: {
@@ -146,8 +182,8 @@ spacerLarge: {
 
   navigation: {
     flexDirection: 'row',
-    borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopWidth: 1/2,
+    // borderTopColor: 'white',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center'
@@ -156,9 +192,9 @@ spacerLarge: {
   navItem: {
     flex: 1,
     height: 50,
-    borderRightWidth: 1,
-    backgroundColor: '#4E70BD',
-    borderRightColor: 'white',
+    // borderRightWidth: 1,
+    // backgroundColor: '#4E70BD',
+    // borderRightColor: 'white',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
@@ -211,7 +247,8 @@ spacerLarge: {
   profileToggle: {
     flexDirection: 'column',
     alignItems: 'center',
-    paddingBottom: 40
+    paddingBottom: 40,
+    paddingTop: 40
   },
 
   posNeg: {
@@ -238,7 +275,7 @@ spacerLarge: {
   },
 
   listItemText: {
-    color: 'white',
+    color: 'black',
     fontSize: 16,
     fontFamily: 'Avenir',
   },
@@ -255,16 +292,18 @@ spacerLarge: {
   },
 
   profilePic: {
-    height: 100,
-    width: 100,
-    borderRadius:100/2
+    height: 120,
+    width: 120,
+    borderRadius: 100/2,
+    // shadowRadius:100/2,
+    shadowOffset: { width: 3, height: 3},
+    shadowColor: 'black',
+    shadowOpacity: .09
   },
 
-  profilePic2: {
-    height: 100,
-    width: 100,
-    borderRadius:100/2,
-    opacity: 20/100
+  headerIcons: {
+    height: 80,
+    width: 80,
   },
 
   plusMinus: {

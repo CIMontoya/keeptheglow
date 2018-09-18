@@ -18,16 +18,16 @@ class BottomNav extends Component {
           press='User'
           nav={this.props.nav}/>
         <NavItem
+          src={require('../../assets/icons/send_feedback.png')}
+          press='SendFeedback'
+          nav={this.props.nav}/>
+        <NavItem
           src={require('../../assets/icons/feedback_quote.png')}
           press='ReceiveFeedback'
           nav={this.props.nav}/>
         <NavItem
           src={require('../../assets/icons/progress.png')}
           press='Progress'
-          nav={this.props.nav}/>
-        <NavItem
-          src={require('../../assets/icons/settings.png')}
-          press='Settings'
           nav={this.props.nav}/>
       </View>
     )

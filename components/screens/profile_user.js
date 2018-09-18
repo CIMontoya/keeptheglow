@@ -69,19 +69,24 @@ class User extends Component {
       )
     }
 
-    const pic = require('../../assets/gradient_dark.png')
-
-
+    const pic = require('../../assets/profile_header.png')
     return (
-      <ImageBackground
-        source={pic}
-        style={{
-          width:380,
-          height:670,
-        }}
-      >
       <View style={Styles.container}>
-        <View style={Styles.header}>
+        <View style={Styles.profileHeader}>
+          <ImageBackground
+            source={pic}
+            style={{
+              width:380,
+              height:300,
+            }}
+          >
+            <View>
+              <Image
+                style={Styles.headerIcons}
+                source={require('../../assets/icons/heart.png')}
+              />
+            </View>
+          </ImageBackground>
         </View>
         <View style={Styles.body}>
           <View style={Styles.profileToggle}>
@@ -89,14 +94,18 @@ class User extends Component {
             onPress={() => this.getPhotosFromGallery()}>
             <Image
               style={Styles.profilePic}
-              source={require('../../assets/icons/avatar_circle.png')}
+              source={require('../../assets/icons/avatar_circle_whitebg.png')}
             />
-          </TouchableHighlight>>
-            <View style={Styles.spacerMedium}></View>
-            <Text style={Styles.link}>View Melissa's List</Text>          </View>
-          <View style={Styles.spacerSmall}></View>
-          <View style={Styles.card}>
-          <View style={Styles.spacerLarge}></View>
+          </TouchableHighlight>
+          <TouchableOpacity
+            onPress={()=>navigate('Settings')}>
+          <Image
+            style={Styles.headerIcons}
+            source={require('../../assets/icons/settings.png')}
+          />
+        </TouchableOpacity>
+            {/* <View style={Styles.spacerSmall}></View> */}
+          </View>
           <View style={Styles.list}>
           {lovedList ?
             <View style={Styles.listHalf1}>
@@ -132,22 +141,11 @@ class User extends Component {
               )}
             </View> : ""
           }
-          </View>
-          <View style={Styles.spacerLarge}></View>
-            <View style={Styles.sendFeedback}>
-              <Button
-                style={Styles.buttonText}
-                containerStyle={Styles.buttonBox}
-                onPress={() => navigate('SendFeedback')}
-              >Send Feedback
-              </Button>
-            </View>
         </View>
         </View>
         <BottomNav
           nav={navigate}/>
       </View>
-    </ImageBackground>
     )
   }
 }
