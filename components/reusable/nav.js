@@ -14,7 +14,7 @@ class BottomNav extends Component {
     return (
       <View style={Styles.navigation}>
         <NavItem
-          src={require('../../assets/icons/couple.png')}
+          src={require('../../assets/icons/avatar.png')}
           press='User'
           nav={this.props.nav}/>
         <NavItem

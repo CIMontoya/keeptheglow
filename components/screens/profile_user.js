@@ -72,44 +72,57 @@ class User extends Component {
     const pic = require('../../assets/profile_header.png')
     return (
       <View style={Styles.container}>
-        <View style={Styles.profileHeader}>
-          <ImageBackground
-            source={pic}
-            style={{
-              width:380,
-              height:300,
-            }}
-          >
-            <View>
-              <Image
-                style={Styles.headerIcons}
-                source={require('../../assets/icons/heart.png')}
-              />
+        <ImageBackground
+          source={pic}
+          style={{
+            width:380,
+            height:190,
+          }}
+        >
+          <View style={Styles.profileHeader}>
+            <View style={Styles.profileTop}>
+              <View style={Styles.cornerLeft}>
+                <TouchableHighlight
+                  onPress={() => navigate('User')}>
+                  <Image
+                    style={Styles.headerIcons}
+                    source={require('../../assets/icons/heart_white.png')}
+                  />
+                </TouchableHighlight>
+              </View>
+              <View style={Styles.cornerRight}>
+                <TouchableHighlight
+                  onPress={() => navigate('User')}>
+                  <Image
+                    style={Styles.headerIcons}
+                    source={require('../../assets/icons/settings_white.png')}
+                  />
+                </TouchableHighlight>
+              </View>
             </View>
-          </ImageBackground>
-        </View>
-        <View style={Styles.body}>
-          <View style={Styles.profileToggle}>
-          <TouchableHighlight
-            onPress={() => this.getPhotosFromGallery()}>
-            <Image
-              style={Styles.profilePic}
-              source={require('../../assets/icons/avatar_circle_whitebg.png')}
-            />
-          </TouchableHighlight>
-          <TouchableOpacity
-            onPress={()=>navigate('Settings')}>
-          <Image
-            style={Styles.headerIcons}
-            source={require('../../assets/icons/settings.png')}
-          />
-        </TouchableOpacity>
-            {/* <View style={Styles.spacerSmall}></View> */}
+            <View style={Styles.profileBottom}>
+              <View style={Styles.profileToggle}>
+                <TouchableHighlight
+                  onPress={() => this.getPhotosFromGallery()}>
+                  <Image
+                    style={Styles.profilePic}
+                    source={require('../../assets/icons/avatar_circle_whitebg.png')}
+                  />
+                </TouchableHighlight>
+              </View>
+            </View>
           </View>
+        </ImageBackground>
+        <View style={Styles.profileBody}>
+          <View style={Styles.spacerMedium}></View>
           <View style={Styles.list}>
           {lovedList ?
             <View style={Styles.listHalf1}>
-              <Text>Gives</Text>
+              <Text
+                style={Styles.h1black}>
+                Gives
+              </Text>
+              <View style={Styles.spacerMedium}></View>
               {lovedList.map((feeling, index) =>
                 <View>
                   <ListItem
@@ -126,7 +139,11 @@ class User extends Component {
           }
           {unlovedList ?
             <View style={Styles.listHalf2}>
-              <Text>Takes</Text>
+              <Text
+                style={Styles.h1black}>
+                Takes
+              </Text>
+              <View style={Styles.spacerMedium}></View>
               {unlovedList.map((feeling, index) =>
                 <View>
                   <ListItem
