@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="318px" height="289px" viewBox="0 0 318 289" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Positives</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Keep-The-Glow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Progress-Page-Positives" transform="translate(0.000000, -547.000000)">
+            <g id="Positives" transform="translate(0.000000, 547.000000)">
+                <g id="Group-8" transform="translate(0.947224, 256.697759)" stroke="#C9C9C9" stroke-linecap="square" stroke-width="3">
+                    <g id="Group-4" transform="translate(24.262957, 2.046681)" fill-rule="nonzero">
+                        <path d="M32.2350713,0.469031032 L32.2350713,7.03546549" id="Line-5"></path>
+                        <path d="M0.34661367,0.469031032 L0.34661367,7.03546549" id="Line-5-Copy-5"></path>
+                        <path d="M96.0119865,0.469031032 L96.0119865,7.03546549" id="Line-5"></path>
+                        <path d="M64.1235289,0.469031032 L64.1235289,7.03546549" id="Line-5-Copy-4"></path>
+                        <path d="M127.900444,0.469031032 L127.900444,7.03546549" id="Line-5-Copy-3"></path>
+                        <path d="M160.482129,0.469031032 L160.482129,7.03546549" id="Line-5"></path>
+                        <path d="M192.370587,0.469031032 L192.370587,7.03546549" id="Line-5-Copy-2"></path>
+                        <path d="M224.259044,0.469031032 L224.259044,7.03546549" id="Line-5-Copy"></path>
+                        <path d="M256.147502,0.469031032 L256.147502,7.03546549" id="Line-5"></path>
+                        <path d="M288.03596,0.469031032 L288.03596,7.03546549" id="Line-5"></path>
+                    </g>
+                    <path d="M0.34661367,1.02334043 L312.298916,1.02334043" id="Line"></path>
+                </g>
+                <g id="Group-7" transform="translate(0.000000, 197.022634)">
+                    <g id="Group-3" fill="#6AF7E4" fill-rule="nonzero">
+                        <rect id="Rectangle-4" opacity="0.301339286" x="0" y="0" width="249.119966" height="40.6773506"></rect>
+                        <rect id="Rectangle-4" x="0.571117082" y="18.7741618" width="185.041934" height="40.6773506"></rect>
+                    </g>
+                    <text id="Recreation-Together" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="7.26913324" y="47.2248179">Recreation Together</tspan>
+                    </text>
+                </g>
+                <g id="Group-6" transform="translate(0.000000, 98.511317)">
+                    <g id="Group" fill="#6AF7E4" fill-rule="nonzero">
+                        <rect id="Rectangle-4" opacity="0.301339286" x="0" y="0.621570696" width="88.8602793" height="41.03248"></rect>
+                        <rect id="Rectangle-4" x="0.569617175" y="19.5596384" width="123.322118" height="41.03248"></rect>
+                    </g>
+                    <text id="Adoration" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="9.73435065" y="47.5715166">Adoration</tspan>
+                    </text>
+                    <text id="2" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="52.2115171" y="188.60951">2</tspan>
+                    </text>
+                    <text id="4" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="115.927267" y="188.60951">4</tspan>
+                    </text>
+                    <text id="6" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="180.527958" y="188.60951">6</tspan>
+                    </text>
+                    <text id="8" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="245.128648" y="188.60951">8</tspan>
+                    </text>
+                    <text id="10" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" fill="#000000">
+                        <tspan x="298.161609" y="188.869389">10</tspan>
+                    </text>
+                </g>
+                <g id="Group-5">
+                    <g id="Group-2" fill="#6AF7E4" fill-rule="nonzero">
+                        <rect id="Rectangle-4" opacity="0.301339286" x="0" y="0" width="154.122778" height="40.5282038"></rect>
+                        <rect id="Rectangle-4" x="0.571890431" y="18.7053248" width="218.236901" height="40.5282038"></rect>
+                    </g>
+                    <text id="Intimate-Conversatio" font-family="Avenir-Medium, Avenir" font-size="18" font-weight="400" letter-spacing="0.327272743" fill="#000000">
+                        <tspan x="8.66742689" y="46.726314">Intimate Conversation</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -57,6 +57,8 @@ class Popup extends Component {
 
             {this.props.buttonText ? <ButtonElement
               buttonText={this.props.buttonText}
+              press={this.props.nav}
+              screen
             /> : <View/>}
 
           </View>

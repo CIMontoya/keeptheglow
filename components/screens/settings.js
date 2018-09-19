@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import ButtonElement from '../reusable/button.js'
-import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
 import Setting from '../reusable/setting.js'

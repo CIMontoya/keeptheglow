@@ -6,6 +6,11 @@ const Styles = {
     backgroundColor: '#F9FBFF'
   },
 
+  containerAuth : {
+    flex: 1,
+    flexDirection: 'column',
+  },
+
   header : {
     flex: 1,
     flexDirection: 'row',
@@ -31,7 +36,7 @@ const Styles = {
     flex:1,
     flexDirection:'row',
     justifyContent: 'space-between',
-    paddingTop: 5
+    paddingTop: 8
   },
 
   profileBottom: {
@@ -59,6 +64,13 @@ const Styles = {
     padding:20,
   },
 
+  progressBody: {
+    flex: 8,
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding:20
+  },
+
 /** Elements **/
 
   spacerLarge: {
@@ -81,6 +93,11 @@ const Styles = {
     width: 20
   },
 
+  minusToggle: {
+    height: 40,
+    width: 40,
+  },
+
   backButton: {
     height: 20,
     width: 20
@@ -98,15 +115,53 @@ const Styles = {
 
   card:{
     width: 165,
-    height: 60,
+    height: 80,
     padding: 20,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 2,
-    shadowOffset:{  width: 4,  height: 4,  },
+    shadowOffset:{  width: 3,  height: 3,  },
     shadowColor: 'black',
-    shadowOpacity: .08
+    shadowOpacity: .07
+  },
+
+  graph1: {
+    flex:1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  graph2:{
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 350,
+    height: 330,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    shadowOffset:{  width: 2,  height: 2,  },
+    shadowColor: 'black',
+    shadowOpacity: .2
+  },
+
+  graphImg1: {
+    marginTop: 20,
+    marginLeft: 20,
+    height: 40,
+    width: 40
+  },
+
+  graphImg2: {
+    marginTop: 20,
+    marginRight: 20,
+    height: 40,
+    width: 40
   },
 
   textInput: {
@@ -211,26 +266,28 @@ const Styles = {
 
   navigation: {
     flexDirection: 'row',
-    // borderTopWidth: 1/2,
-    // borderTopColor: 'white',
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopWidth: 1/2,
+    borderTopColor: '#CFCBD3'
   },
 
   navItem: {
     flex: 1,
     height: 50,
-    // borderRightWidth: 1,
-    // backgroundColor: '#4E70BD',
-    // borderRightColor: 'white',
+    borderRightWidth: 1/2,
+    borderRightColor: '#CFCBD3',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 2,
+    shadowOffset:{  width: 4,  height: 4,  },
+    shadowColor: 'black',
+    shadowOpacity: .08
   },
 
   navIcon: {
-    // flex: 1,
     width: 70,
     height: 70
   },
@@ -249,9 +306,9 @@ const Styles = {
     addDescription: {
       height: 150,
       width: 300,
-      borderWidth: 1,
-      borderRadius: 2,
-      borderColor: 'grey',
+      borderWidth: 3,
+      borderRadius: 3,
+      borderColor: '#4E70BD',
       paddingLeft: 15,
       paddingTop: 15,
       paddingRight: 15,
@@ -277,7 +334,7 @@ const Styles = {
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 40,
-    paddingTop: 50
+    paddingTop: 70
   },
 
   posNeg: {
@@ -303,10 +360,16 @@ const Styles = {
     alignItems: 'center'
   },
 
-  listItemText: {
-    color: 'black',
+  listItemText1: {
+    color: '#4E70BD',
     fontSize: 16,
-    fontFamily: 'AvenirNext-Medium',
+    fontFamily: 'Avenir-Heavy',
+  },
+
+  listItemText2: {
+    color: '#00BFDB',
+    fontSize: 16,
+    fontFamily: 'Avenir-Heavy',
   },
 
   listItemBox: {
@@ -321,8 +384,8 @@ const Styles = {
   },
 
   profilePic: {
-    height: 140,
-    width: 140,
+    height: 110,
+    width: 110,
     borderRadius: 100/2,
     // shadowRadius:100/2,
     shadowOffset: { width: 3, height: 3},
@@ -333,6 +396,11 @@ const Styles = {
   headerIcons: {
     height: 80,
     width: 80,
+  },
+
+  icons: {
+    height: 40,
+    width: 40,
   },
 
   plusMinus: {
@@ -401,6 +469,7 @@ const Styles = {
   giveHeader: {
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     textAlign: 'center'
   },
 
