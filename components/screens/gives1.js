@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity, Slider, TextInput } from 'react-native'
 import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 import { connect } from 'react-redux'
@@ -9,13 +9,13 @@ class Gives1 extends Component {
   constructor(props){
     super(props)
     this.state = {
-      user: true
+      value: 0
     }
   }
 
   static navigationOptions = {
-   header: null
- }
+    header: null
+  }
 
   render() {
     const { navigate } = this.props.navigation

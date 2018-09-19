@@ -82,7 +82,7 @@ class Login extends Component {
           justifyContent: 'center'
         }}
       >
-      <View style={Styles.container}>
+      <View style={Styles.containerAuth}>
         <View style={Styles.header}>
         </View>
         <View style={Styles.body}>
