@@ -38,8 +38,8 @@ class Settings extends Component {
                 source={require('../../assets/icons/avatar.png')}
               />
               <View style={Styles.editPic}></View>
-              <View style={Styles.spacerMedium}></View>
-              <Text>Aimee Roxanne</Text>
+              <View style={Styles.spacerMedium }></View>
+              <Text style={Styles.setting}>Aimee Roxanne</Text>
             </View>
             <View style={Styles.hr}></View>
             <View style={Styles.spacerLarge}></View>

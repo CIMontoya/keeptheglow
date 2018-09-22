@@ -15,6 +15,7 @@ const Styles = {
     paddingTop: 10
   },
 
+
   backHeader : {
     flex: 1,
     flexDirection: 'row',
@@ -344,6 +345,9 @@ spacerLarge: {
   },
 
   settingText: {
+    fontSize: 14,
+    fontFamily: 'Avenir',
+    fontWeight: '800',
     flex: 1
   },
 
