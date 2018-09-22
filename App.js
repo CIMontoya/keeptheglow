@@ -12,8 +12,10 @@ import Loader from './components/screens/loader.js'
 import Signup from './components/screens/signup.js'
 import Login from './components/screens/login.js'
 import User from './components/screens/profile_user.js'
+import Partner from './components/screens/profile_partner.js'
 import Settings from './components/screens/settings.js'
-import Progress from './components/screens/progress.js'
+import ProgressGives from './components/screens/progress_gives.js'
+import ProgressTakes from './components/screens/progress_takes.js'
 import ReceiveFeedback from './components/screens/feedback_receive.js'
 import DeleteAccount from './components/screens/popup_deleteAccount.js'
 import RemovePartner from './components/screens/popup_removePartner.js'
@@ -26,6 +28,9 @@ import Gives2 from './components/screens/gives2.js'
 import Takes0 from './components/screens/takes0.js'
 import Takes1 from './components/screens/takes1.js'
 import Takes2 from './components/screens/takes2.js'
+import FeedbackGives0 from './components/screens/feedback_gives0.js'
+import FeedbackGives1 from './components/screens/feedback_gives1.js'
+import FeedbackGives2 from './components/screens/feedback_gives2.js'
 
 import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
@@ -39,7 +44,9 @@ const RootStack = SwitchNavigator(
     Login,
     User,
     Settings,
-    Progress,
+    ProgressGives,
+    ProgressTakes,
+    Partner,
     ReceiveFeedback,
     DeleteAccount,
     RemovePartner,
@@ -52,7 +59,9 @@ const RootStack = SwitchNavigator(
     Takes0,
     Takes1,
     Takes2,
-    SendFeedback,
+    FeedbackGives0,
+    FeedbackGives1,
+    FeedbackGives2,
     Intro
   },
   {

@@ -27,7 +27,7 @@ class Popup extends Component {
     return (
       <View style={Styles.container}>
         <View
-          // style={Styles.header}
+          style={Styles.header}
           >
           <TouchableOpacity
             onPress={()=>this.props.nav(this.props.screen)}>
@@ -57,6 +57,8 @@ class Popup extends Component {
 
             {this.props.buttonText ? <ButtonElement
               buttonText={this.props.buttonText}
+              press={this.props.nav}
+              screen
             /> : <View/>}
 
           </View>

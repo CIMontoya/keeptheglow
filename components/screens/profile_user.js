@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import { CameraRoll, Text, View, Image, TouchableOpacity, TouchableHighlight, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import Button from 'react-native-button'
-import ListItem from '../reusable/listItem.js'
+import ListItem1 from '../reusable/listItem1.js'
+import ListItem2 from '../reusable/listItem2.js'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
 import firebase from 'react-native-firebase'
@@ -72,47 +73,61 @@ class User extends Component {
     const pic = require('../../assets/profile_header.png')
     return (
       <View style={Styles.container}>
-        <View style={Styles.profileHeader}>
-          <ImageBackground
-            source={pic}
-            style={{
-              width:380,
-              height:300,
-            }}
-          >
-            <View>
-              <Image
-                style={Styles.headerIcons}
-                source={require('../../assets/icons/heart.png')}
-              />
+        <ImageBackground
+          source={pic}
+          style={{
+            width:380,
+            height:190,
+          }}
+        >
+          <View style={Styles.profileHeader}>
+            <View style={Styles.profileTop}>
+              <View style={Styles.cornerLeft}>
+                <TouchableOpacity
+                  onPress={() => navigate('Partner')}>
+                  <Image
+                    style={Styles.headerIcons}
+                    source={require('../../assets/icons/heart_white.png')}
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={Styles.cornerRight}>
+                <TouchableOpacity
+                  onPress={() => navigate('Settings')}>
+                  <Image
+                    style={Styles.headerIcons}
+                    source={require('../../assets/icons/settings_white.png')}
+                  />
+                </TouchableOpacity>
+              </View>
             </View>
-          </ImageBackground>
-        </View>
-        <View style={Styles.body}>
-          <View style={Styles.profileToggle}>
-          <TouchableHighlight
-            onPress={() => this.getPhotosFromGallery()}>
-            <Image
-              style={Styles.profilePic}
-              source={require('../../assets/icons/avatar_circle_whitebg.png')}
-            />
-          </TouchableHighlight>
-          <TouchableOpacity
-            onPress={()=>navigate('Settings')}>
-          <Image
-            style={Styles.headerIcons}
-            source={require('../../assets/icons/settings.png')}
-          />
-        </TouchableOpacity>
-            {/* <View style={Styles.spacerSmall}></View> */}
+            <View style={Styles.profileBottom}>
+              <View style={Styles.profileToggle}>
+                <TouchableOpacity
+                  onPress={() => this.getPhotosFromGallery()}>
+                  <Image
+                    style={Styles.profilePic}
+                    source={require('../../assets/icons/avatar_circle_purple.png')}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
+        </ImageBackground>
+        <View style={Styles.profileBody}>
+          <View style={Styles.spacerMedium}></View>
           <View style={Styles.list}>
           {lovedList ?
             <View style={Styles.listHalf1}>
-              <Text>Gives</Text>
+              <Image
+                style={Styles.icons}
+                source={require('../../assets/icons/plus_bare.png')}
+              />
+              <Text>GIVES</Text>
+              <View style={Styles.spacerLarge}></View>
               {lovedList.map((feeling, index) =>
                 <View>
-                  <ListItem
+                  <ListItem1
                     key={feeling.id}
                     text={feeling.name}
                     description={feeling.description}
@@ -126,10 +141,15 @@ class User extends Component {
           }
           {unlovedList ?
             <View style={Styles.listHalf2}>
-              <Text>Takes</Text>
+              <Image
+                style={Styles.icons}
+                source={require('../../assets/icons/minus_bare.png')}
+              />
+              <Text>TAKES</Text>
+              <View style={Styles.spacerLarge}></View>
               {unlovedList.map((feeling, index) =>
                 <View>
-                  <ListItem
+                  <ListItem2
                     key={feeling.id}
                     text={feeling.name}
                     description={feeling.description}

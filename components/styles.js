@@ -3,7 +3,12 @@ const Styles = {
   container : {
     flex: 1,
     flexDirection: 'column',
-    // backgroundColor: 'white'
+    backgroundColor: '#F9FBFF'
+  },
+
+  containerAuth : {
+    flex: 1,
+    flexDirection: 'column',
   },
 
   header : {
@@ -25,25 +30,54 @@ const Styles = {
   },
 
   profileHeader : {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    flex: 2,
+  },
+
+  profileTop: {
+    flex:1,
+    flexDirection:'row',
+    justifyContent: 'space-between',
+    paddingTop: 8
+  },
+
+  profileBottom: {
+    flex:2,
+  },
+
+  profileBody: {
+    flex: 4,
+    flexDirection: 'column',
+    justifyContent:'center',
+    padding: 15,
+  },
+
+  cornerRight: {
+    flexDirection:'column',
+  },
+
+  cornerLeft: {
+    flexDirection:'column',
   },
 
   body : {
     flex: 8,
     flexDirection: 'column',
     padding:20,
-    // backgroundColor: '#F7F7FF'
+  },
+
+  progressBody: {
+    flex: 8,
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding:20
   },
 
 /** Elements **/
 
-spacerLarge: {
-  paddingTop: 15,
-  paddingBottom: 15
-},
+  spacerLarge: {
+    paddingTop: 15,
+    paddingBottom: 15
+  },
 
   spacerMedium: {
     paddingTop: 10,
@@ -58,6 +92,11 @@ spacerLarge: {
   closeButton: {
     height: 20,
     width: 20
+  },
+
+  minusToggle: {
+    height: 40,
+    width: 40,
   },
 
   backButton: {
@@ -76,16 +115,54 @@ spacerLarge: {
   },
 
   card:{
-    width: 150,
-    height: 60,
+    width: 165,
+    height: 80,
     padding: 20,
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 2,
-    shadowOffset:{  width: 4,  height: 4,  },
+    shadowOffset:{  width: 3,  height: 3,  },
     shadowColor: 'black',
-    shadowOpacity: .08
+    shadowOpacity: .07
+  },
+
+  graph1: {
+    flex:1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  graph2:{
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 350,
+    height: 330,
+    paddingTop: 20,
+    paddingBottom: 20,
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    shadowOffset:{  width: 2,  height: 2,  },
+    shadowColor: 'black',
+    shadowOpacity: .2
+  },
+
+  graphImg1: {
+    marginTop: 20,
+    marginLeft: 20,
+    height: 40,
+    width: 40
+  },
+
+  graphImg2: {
+    marginTop: 20,
+    marginRight: 20,
+    height: 40,
+    width: 40
   },
 
   textInput: {
@@ -114,8 +191,15 @@ spacerLarge: {
 
   h2: {
     color: 'black',
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Avenir',
+    paddingBottom: 10
+  },
+
+  h3: {
+    color: 'black',
+    fontSize: 18,
+    fontFamily: 'Avenir-Black',
     paddingBottom: 10
   },
 
@@ -183,26 +267,28 @@ spacerLarge: {
 
   navigation: {
     flexDirection: 'row',
-    borderTopWidth: 1/2,
-    // borderTopColor: 'white',
     height: 50,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopWidth: 1/2,
+    borderTopColor: '#CFCBD3'
   },
 
   navItem: {
     flex: 1,
     height: 50,
-    // borderRightWidth: 1,
-    // backgroundColor: '#4E70BD',
-    // borderRightColor: 'white',
+    borderRightWidth: 1/2,
+    borderRightColor: '#CFCBD3',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 2,
+    shadowOffset:{  width: 4,  height: 4,  },
+    shadowColor: 'black',
+    shadowOpacity: .08
   },
 
   navIcon: {
-    // flex: 1,
     width: 70,
     height: 70
   },
@@ -221,9 +307,9 @@ spacerLarge: {
     addDescription: {
       height: 150,
       width: 300,
-      borderWidth: 1,
-      borderRadius: 2,
-      borderColor: 'grey',
+      borderWidth: 3,
+      borderRadius: 3,
+      borderColor: '#4E70BD',
       paddingLeft: 15,
       paddingTop: 15,
       paddingRight: 15,
@@ -249,7 +335,7 @@ spacerLarge: {
     flexDirection: 'column',
     alignItems: 'center',
     paddingBottom: 40,
-    paddingTop: 40
+    paddingTop: 70
   },
 
   posNeg: {
@@ -275,10 +361,16 @@ spacerLarge: {
     alignItems: 'center'
   },
 
-  listItemText: {
-    color: 'black',
+  listItemText1: {
+    color: '#4E70BD',
     fontSize: 16,
-    fontFamily: 'Avenir',
+    fontFamily: 'Avenir-Heavy',
+  },
+
+  listItemText2: {
+    color: '#00BFDB',
+    fontSize: 16,
+    fontFamily: 'Avenir-Heavy',
   },
 
   listItemBox: {
@@ -293,8 +385,8 @@ spacerLarge: {
   },
 
   profilePic: {
-    height: 120,
-    width: 120,
+    height: 110,
+    width: 110,
     borderRadius: 100/2,
     // shadowRadius:100/2,
     shadowOffset: { width: 3, height: 3},
@@ -305,6 +397,11 @@ spacerLarge: {
   headerIcons: {
     height: 80,
     width: 80,
+  },
+
+  icons: {
+    height: 40,
+    width: 40,
   },
 
   plusMinus: {
@@ -376,6 +473,7 @@ spacerLarge: {
   giveHeader: {
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     textAlign: 'center'
   },
 

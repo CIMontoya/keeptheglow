@@ -1,26 +1,10 @@
 import React, {Component} from 'react'
-import { Text, View, Image, Slider, TextInput, TouchableOpacity } from 'react-native'
-import ButtonElement from '../reusable/button.js'
+import { Text, View, TouchableOpacity, Image, Slider, TextInput } from 'react-native'
 import Button from 'react-native-button'
 import Styles from '../styles.js'
-import t from 'tcomb-form-native'
+import { connect } from 'react-redux'
 
-const Form = t.form.Form
-
-const send = t.struct({
-  feedback: t.String,
-})
-
-var options = {
-  fields: {
-    feedback:{
-      multiline: true,
-    }
-  },
-  auto: 'placeholders'
-}
-
-class SendFeedback extends Component {
+class FeedbackGives1 extends Component {
 
   constructor(props){
     super(props)
@@ -44,11 +28,20 @@ class SendFeedback extends Component {
   render() {
     const { navigate } = this.props.navigation
     const {value} = this.state
+    const { user, userFeelings } = this.props.user
+
+    let loved1
+
+    if(userFeelings){
+        loved = userFeelings.filter(feeling => feeling.is_loved === true)
+        loved1 = loved[1]
+    }
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
           <TouchableOpacity
-            onPress={()=>navigate('SaveFeedback')}>
+            onPress={()=>navigate('User')}>
             <Image
               style={Styles.closeButton}
               source={require('../../assets/icons/close.png')}
@@ -59,7 +52,7 @@ class SendFeedback extends Component {
           <View style={Styles.giveFeedback}>
             <View style={Styles.giveHeader}>
               <Text style={Styles.h2}>How did your partner do on
-                <Text style={Styles.highlight}> Quality Time </Text>this week?
+                <Text style={Styles.highlight}> {loved1.name} </Text>this week?
               </Text>
             </View>
             <View style={Styles.spacerLarge}></View>
@@ -104,7 +97,10 @@ class SendFeedback extends Component {
                 style={Styles.buttonText}
                 containerStyle={Styles.buttonBox}
                 onValueChange={(e) => this.sliderChange(e.target.value)}
-                onPress={()=>navigate('Gives1')}>Next</Button>
+                onPress={()=>navigate('FeedbackGives2')}
+                title='Next'>
+                Next
+              </Button>
             </View>
           </View>
         </View>
@@ -113,4 +109,11 @@ class SendFeedback extends Component {
   }
 }
 
-export default SendFeedback
+const mapStateToProps = state => {
+  return {
+    user: state.user.userData,
+    scores: state.user.scores
+  }
+}
+
+export default connect(mapStateToProps)(FeedbackGives1)

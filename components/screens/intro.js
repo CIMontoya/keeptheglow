@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Text, TextInput, View, Image } from 'react-native'
-import ListItem from '../reusable/listItem.js'
 import Styles from '../styles.js'
 import ButtonElement from '../reusable/button.js'
 
