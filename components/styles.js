@@ -109,8 +109,8 @@ const Styles = {
   },
 
   hr: {
-    borderTopWidth: 1,
-    borderTopColor: 'white',
+    borderTopWidth: 2,
+    borderTopColor: 'grey',
   },
 
   card:{
@@ -231,6 +231,12 @@ const Styles = {
     fontSize: 22,
   },
 
+  buttonText2: {
+    color: 'white',
+    fontFamily: 'Avenir-Black',
+    fontSize: 22,
+  },
+
   link:{
     textDecorationLine: 'underline',
     color: '#E0FF4F',
@@ -241,6 +247,20 @@ const Styles = {
   buttonBox: {
     backgroundColor: 'white',
     borderColor: 'white',
+    borderWidth: 2,
+    height: 50,
+    width: 200,
+    borderRadius: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset:{  width: 4,  height: 4,  },
+    shadowColor: 'black',
+    shadowOpacity: .2,
+  },
+
+  buttonBox2: {
+    backgroundColor: '#4E70BD',
+    borderColor: '#4E70BD',
     borderWidth: 2,
     height: 50,
     width: 200,
@@ -335,6 +355,13 @@ const Styles = {
     alignItems: 'center',
     paddingBottom: 40,
     paddingTop: 70
+  },
+
+  avatarSettings: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingBottom: 40,
+    paddingTop: 130
   },
 
   posNeg: {
@@ -441,8 +468,11 @@ const Styles = {
   },
 
   settingText: {
-    flex: 1
-  },
+    flex: 1,
+    fontSize: 14,
+    fontFamily: 'Avenir',
+    fontWeight: '800'
+ },
 
   settingArrow: {
     height: 10,
@@ -496,6 +526,8 @@ const Styles = {
     height: 31,
     width: 31,
   },
+
+
 
   sideSpacerSmall: {
     paddingLeft: 5,

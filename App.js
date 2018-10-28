@@ -25,6 +25,7 @@ import EditAccount from './components/screens/auth_editAccount.js'
 import Gives0 from './components/screens/gives0.js'
 import Gives1 from './components/screens/gives1.js'
 import Gives2 from './components/screens/gives2.js'
+import Gives4 from './components/screens/gives4.js'
 import Takes0 from './components/screens/takes0.js'
 import Takes1 from './components/screens/takes1.js'
 import Takes2 from './components/screens/takes2.js'
@@ -56,6 +57,7 @@ const RootStack = SwitchNavigator(
     Gives0,
     Gives1,
     Gives2,
+    Gives4,
     Takes0,
     Takes1,
     Takes2,
