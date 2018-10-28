@@ -52,7 +52,7 @@ class Partner extends Component {
     let lovedList
     let unlovedList
 
-
+    console.log(partnerFeelings, "partner")
     if(partnerFeelings){
         lovedList = partnerFeelings.filter(feeling => feeling.is_loved === true)
     }
@@ -130,7 +130,7 @@ class Partner extends Component {
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen={`Gives${index}`}
+                    screen='Gives4'
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
@@ -152,7 +152,7 @@ class Partner extends Component {
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen={`Takes${index}`}
+                    screen='Gives4'
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>

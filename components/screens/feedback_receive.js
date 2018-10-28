@@ -39,7 +39,7 @@ class ReceiveFeedback extends Component {
             <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
               <Text style={Styles.h1black}>
-                July, 2018
+                Sept. 14th, 2018
               </Text>
             </View>
             <View style={Styles.spacerSmall}></View>
