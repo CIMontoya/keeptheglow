@@ -48,20 +48,7 @@ class Settings extends Component {
         </ImageBackground>
         <View style={Styles.body}>
           <View style={Styles.user}>
-<<<<<<< HEAD
-            <View style={Styles.userPic}>
-              <Image
-                style={Styles.profilePic}
-                source={require('../../assets/icons/avatar.png')}
-              />
-              <View style={Styles.editPic}></View>
-              <View style={Styles.spacerMedium }></View>
-              <Text style={Styles.setting}>Aimee Roxanne</Text>
-            </View>
-            <View style={Styles.hr}></View>
-=======
             <View style={Styles.spacerLarge}></View>
->>>>>>> afe1ba0c3dd3c8a41feeded99a6828ce5337dac8
             <View style={Styles.spacerLarge}></View>
             <TouchableOpacity
               style={Styles.setting}

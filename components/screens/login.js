@@ -124,12 +124,14 @@ class Login extends Component {
   }
 }
 
+//grabs data from store
 const mapStateToProps = (state) => {
   return {
     userData: state.userData
   }
 }
 
+//takes dispatch, gives us access to that action to be triggered 
 const mapDispatchToProps = dispatch => bindActionCreators({
   setUserData
 }, dispatch)
