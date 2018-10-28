@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Text, TextInput, View, Image } from 'react-native'
 import ButtonElement from '../reusable/button.js'
-import ListItem from '../reusable/listItem.js'
+import ListItem from '../reusable/listItem1.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select'
 

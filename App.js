@@ -33,6 +33,8 @@ import FeedbackGives0 from './components/screens/feedback_gives0.js'
 import FeedbackGives1 from './components/screens/feedback_gives1.js'
 import FeedbackGives2 from './components/screens/feedback_gives2.js'
 
+import CreateList from './components/screens/create_list.js'
+
 import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
 
@@ -64,7 +66,8 @@ const RootStack = SwitchNavigator(
     FeedbackGives0,
     FeedbackGives1,
     FeedbackGives2,
-    Intro
+    Intro,
+    CreateList
   },
   {
     initialRouteName: 'Loader'
