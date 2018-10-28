@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, TextInput, TouchableOpacity, Image } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import Styles from '../styles.js'
 import ButtonElement from '../reusable/button.js'
 import t from 'tcomb-form-native'
@@ -44,9 +44,21 @@ class EditAccount extends Component {
   }
 
   render() {
+    const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
     return (
-      <View style={Styles.container}>
+      <ImageBackground
+        source={pic}
+        style={{
+          width:380,
+          height:670,
+          flex: 1,
+          flexDirection: 1,
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+      <View style={Styles.containerAuth}>
         <View style={Styles.backHeader}>
           <TouchableOpacity
             onPress={()=>navigate('Settings')}>
@@ -80,6 +92,7 @@ class EditAccount extends Component {
           </View>
         </View>
       </View>
+      </ImageBackground>
     )
   }
 }

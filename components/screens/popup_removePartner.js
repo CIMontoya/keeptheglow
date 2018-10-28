@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
-import Popup from '../reusable/popup.js'
+import Button from 'react-native-button'
 import Styles from '../styles.js'
 
 class RemovePartner extends Component {
@@ -35,13 +35,39 @@ class RemovePartner extends Component {
   render() {
     const { navigate } = this.props.navigation
     return (
-      <Popup
-        header='Remove Partner'
-        content='Are you sure you want to remove your partner? You will lose access to all feedback they have provided you, as well as their lists. They will also lose your feedback and lists.'
-        buttonText="Remove My Partner"
-        nav={navigate}
-        screen='Settings'
-      />
+      <View style={Styles.container}>
+        <View
+          style={Styles.header}
+          >
+          <TouchableOpacity
+            onPress={()=>navigate('Settings')}>
+            <Image
+              style={Styles.closeButton}
+              source={require('../../assets/icons/close.png')}
+            />
+          </TouchableOpacity>
+        </View>
+        <View style={Styles.body}>
+          <View style={Styles.popUp}>
+            <Text
+              style={Styles.h1black}>
+              Remove Partner
+            </Text>
+            <View style={Styles.spacerMedium}></View>
+            <Text
+              style={Styles.pCenterBlack}>
+              Are you sure you want to remove your partner? You will lose access to all feedback they have provided you, as well as their lists. They will also lose your feedback and lists.
+            </Text>
+            <View style={Styles.spacerMedium}></View>
+
+            <Button
+              style={Styles.buttonText2}
+              containerStyle={Styles.buttonBox2}
+            >Remove Partner</Button>
+
+          </View>
+        </View>
+      </View>
     )
   }
 }

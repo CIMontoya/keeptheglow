@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native'
 import ButtonElement from '../reusable/button.js'
 import Styles from '../styles.js'
 import BottomNav from '../reusable/nav.js'
@@ -24,13 +24,31 @@ class Settings extends Component {
   render() {
 
     const { navigate } = this.props.navigation
-
+    const pic = require('../../assets/profile_header.png')
     return (
       <View style={Styles.container}>
-        <View style={Styles.header}>
-        </View>
+        <ImageBackground
+          source={pic}
+          style={{
+            width:380,
+            height:190,
+          }}
+        >
+          <View style={Styles.profileHeader}>
+            <View style={Styles.avatarSettings}>
+              <TouchableOpacity
+                onPress={() => this.getPhotosFromGallery()}>
+                <Image
+                  style={Styles.profilePic}
+                  source={require('../../assets/icons/avatar_circle_purple.png')}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ImageBackground>
         <View style={Styles.body}>
           <View style={Styles.user}>
+<<<<<<< HEAD
             <View style={Styles.userPic}>
               <Image
                 style={Styles.profilePic}
@@ -41,6 +59,9 @@ class Settings extends Component {
               <Text style={Styles.setting}>Aimee Roxanne</Text>
             </View>
             <View style={Styles.hr}></View>
+=======
+            <View style={Styles.spacerLarge}></View>
+>>>>>>> afe1ba0c3dd3c8a41feeded99a6828ce5337dac8
             <View style={Styles.spacerLarge}></View>
             <TouchableOpacity
               style={Styles.setting}
