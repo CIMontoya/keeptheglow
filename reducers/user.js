@@ -4,7 +4,8 @@ import {
 } from '../actions/user.js'
 
 const initialState = {
-  userData: {}
+  userData: {},
+  
 }
 
 export default (state = initialState, action) => {

@@ -7,6 +7,8 @@ export const setUserData = (email) => {
 
       let userResponse = await fetch(`https://keeptheglow.herokuapp.com/api/users/${email}`)
       let userData = await userResponse.json()
+      
+      console.log("userData", userData)
 
       let id = userData.user[0].id
 

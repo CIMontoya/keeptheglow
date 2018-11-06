@@ -4,7 +4,7 @@ import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 import { connect } from 'react-redux'
 
-class Gives0 extends Component {
+class PartnerGives0 extends Component {
 
   constructor(props){
     super(props)
@@ -19,13 +19,15 @@ class Gives0 extends Component {
 
   render() {
     const { navigate } = this.props.navigation
-    const { user, userFeelings } = this.props.user
-    
-console.log(this.props.user, "gives0")
+    const { partner, partnerFeelings } = this.props.user
+
     let loved0
 
-    if(userFeelings){
-        loved = userFeelings.filter(feeling => feeling.is_loved === true)
+  console.log(partnerFeelings, "partner from gives0")
+
+    if(partnerFeelings){
+      console.log(this.props.user, "user on gives0")
+        loved = partnerFeelings.filter(feeling => feeling.is_loved === true)
         loved0 = loved[0]
     }
 
@@ -34,7 +36,7 @@ console.log(this.props.user, "gives0")
         header={loved0.name}
         content={loved0.description}
         nav={navigate}
-        screen="User"
+        screen="Partner"
       />
     )
   }
@@ -47,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Gives0)
+export default connect(mapStateToProps)(PartnerGives0)

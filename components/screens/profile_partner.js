@@ -36,37 +36,42 @@ class Partner extends Component {
     this.props.setUserData(currentUser && currentUser.email)
   }
 
-  getPhotosFromGallery() {
-    CameraRoll.getPhotos({ first: 100 })
-      .then(res => {
-        let photoArray = res.edges;
-        this.setState({ showPhotoGallery: true, photoArray: photoArray })
-      })
-  }
+  // getPhotosFromGallery() {
+  //   CameraRoll.getPhotos({ first: 100 })
+  //     .then(res => {
+  //       let photoArray = res.edges;
+  //       this.setState({ showPhotoGallery: true, photoArray: photoArray })
+  //     })
+  // }
 
   render() {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
+console.log("partnerFeelings from partner profile", partnerFeelings)
+
     let lovedList
     let unlovedList
 
-    console.log(partnerFeelings, "partner")
+    // console.log(partnerFeelings, "partner")
+
     if(partnerFeelings){
         lovedList = partnerFeelings.filter(feeling => feeling.is_loved === true)
+        // console.log("lovedList from partner", lovedList)
     }
     if(partnerFeelings){
         unlovedList = partnerFeelings.filter(feeling => feeling.is_loved === false)
+              // console.log("unlovedList from partner", unlovedList)
     }
 
-    if(this.state.showPhotoGallery){
-      return (
-        <ViewPhotos
-          photoArray={this.state.photoArray}
-        />
-      )
-    }
+    // if(this.state.showPhotoGallery){
+    //   return (
+    //     <ViewPhotos
+    //       photoArray={this.state.photoArray}
+    //     />
+    //   )
+    // }
 
     const pic = require('../../assets/profile_header_reverse.png')
     return (
@@ -81,13 +86,13 @@ class Partner extends Component {
           <View style={Styles.profileHeader}>
             <View style={Styles.profileTop}>
               <View style={Styles.cornerLeft}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={() => navigate('User')}>
                   <Image
                     style={Styles.headerIcons}
                     source={require('../../assets/icons/heart_white.png')}
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
               <View style={Styles.cornerRight}>
                 <TouchableOpacity
@@ -102,7 +107,8 @@ class Partner extends Component {
             <View style={Styles.profileBottom}>
               <View style={Styles.profileToggle}>
                 <TouchableOpacity
-                  onPress={() => this.getPhotosFromGallery()}>
+                  // onPress={() => this.getPhotosFromGallery()}
+                  >
                   <Image
                     style={Styles.profilePic}
                     source={require('../../assets/icons/avatar_circle_green.png')}
@@ -130,7 +136,7 @@ class Partner extends Component {
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen='Gives4'
+                    screen={`PartnerGives${index}`}
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
@@ -152,7 +158,7 @@ class Partner extends Component {
                     text={feeling.name}
                     description={feeling.description}
                     press={navigate}
-                    screen='Gives4'
+                    screen={`PartnerTakes${index}`}
                   />
                   <View style={Styles.spacerSmall}></View>
                 </View>
