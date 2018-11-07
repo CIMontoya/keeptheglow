@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import { Text, View, TouchableOpacity, Image, Slider, TextInput } from 'react-native'
+import { Text, View, Image, TouchableOpacity, Slider, TextInput } from 'react-native'
 import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 import { connect } from 'react-redux'
 
-class Gives0 extends Component {
+class PartnerGives1 extends Component {
 
   constructor(props){
     super(props)
@@ -14,27 +14,27 @@ class Gives0 extends Component {
   }
 
   static navigationOptions = {
-   header: null
+    header: null
   }
 
   render() {
     const { navigate } = this.props.navigation
-    const { user, userFeelings } = this.props.user
-    
-console.log(this.props.user, "gives0")
-    let loved0
+    const { partner, partnerFeelings } = this.props.user
 
-    if(userFeelings){
-        loved = userFeelings.filter(feeling => feeling.is_loved === true)
-        loved0 = loved[0]
+    let loved1
+
+    if(partnerFeelings){
+        loved = partnerFeelings.filter(feeling => feeling.is_loved === true)
+        loved1 = loved[1]
+
     }
 
     return (
       <Popup
-        header={loved0.name}
-        content={loved0.description}
+        header={loved1.name}
+        content={loved1.description}
         nav={navigate}
-        screen="User"
+        screen="Partner"
       />
     )
   }
@@ -47,4 +47,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Gives0)
+export default connect(mapStateToProps)(PartnerGives1)

@@ -36,18 +36,20 @@ class User extends Component {
     this.props.setUserData(currentUser && currentUser.email)
   }
 
-  getPhotosFromGallery() {
-    CameraRoll.getPhotos({ first: 100 })
-      .then(res => {
-        let photoArray = res.edges;
-        this.setState({ showPhotoGallery: true, photoArray: photoArray })
-      })
-  }
+  // getPhotosFromGallery() {
+  //   CameraRoll.getPhotos({ first: 100 })
+  //     .then(res => {
+  //       let photoArray = res.edges;
+  //       this.setState({ showPhotoGallery: true, photoArray: photoArray })
+  //     })
+  // }
 
   render() {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
+console.log("user from profile_user", userFeelings)
 
     let lovedList
     let unlovedList
@@ -60,15 +62,13 @@ class User extends Component {
         unlovedList = userFeelings.filter(feeling => feeling.is_loved === false)
     }
 
-
-
-    if(this.state.showPhotoGallery){
-      return (
-        <ViewPhotos
-          photoArray={this.state.photoArray}
-        />
-      )
-    }
+    // if(this.state.showPhotoGallery){
+    //   return (
+    //     <ViewPhotos
+    //       photoArray={this.state.photoArray}
+    //     />
+    //   )
+    // }
 
     const pic = require('../../assets/profile_header.png')
     return (
@@ -104,7 +104,8 @@ class User extends Component {
             <View style={Styles.profileBottom}>
               <View style={Styles.profileToggle}>
                 <TouchableOpacity
-                  onPress={() => this.getPhotosFromGallery()}>
+                  // onPress={() => this.getPhotosFromGallery()}
+                  >
                   <Image
                     style={Styles.profilePic}
                     source={require('../../assets/icons/avatar_circle_purple.png')}

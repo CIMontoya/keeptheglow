@@ -28,20 +28,23 @@ class FeedbackGives0 extends Component {
   render() {
     const { navigate } = this.props.navigation
     const {value} = this.state
-    const { user, userFeelings } = this.props.user
+    const {  user, userFeelings} = this.props.user
 
+
+    console.log(userFeelings, "userFeelings")
     let loved0
 
     if(userFeelings){
         loved = userFeelings.filter(feeling => feeling.is_loved === true)
         loved0 = loved[0]
+        console.log("loved0", loved0)
     }
 
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
           <TouchableOpacity
-            onPress={()=>navigate('User')}>
+            onPress={()=>navigate('Partner')}>
             <Image
               style={Styles.closeButton}
               source={require('../../assets/icons/close.png')}
