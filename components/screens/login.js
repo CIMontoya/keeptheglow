@@ -60,7 +60,7 @@ class Login extends Component {
 
   handleLogin = () => {
     const value = this._form.getValue()
-    // console.log("value:", value)
+    console.log("value:", value)
     const { email, password } = value
     firebase
       .auth()
@@ -70,8 +70,10 @@ class Login extends Component {
   }
 
   render() {
+
     const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
+
     return (
       <ImageBackground
         source={pic}

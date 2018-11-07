@@ -1,18 +1,22 @@
 import React, {Component} from 'react'
 import { Text, TextInput, View, Image } from 'react-native'
 import ButtonElement from '../reusable/button.js'
+import Button from 'react-native-button'
 import ListItem from '../reusable/listItem1.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select'
 import t from 'tcomb-form-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setUserData, createList } from '../../actions/user.js'
 
 const Form = t.form.form
 
-const send = t.struct({
+const Send = t.struct({
   description: t.String,
 
 })
-class CreateList extends Component {
+class CreateList0 extends Component {
 
   static navigationOptions = {
    header: null
@@ -22,6 +26,7 @@ class CreateList extends Component {
      super(props)
 
      this.state = {
+         list: '',
          gives: '',
          items: [],
          new: [],
@@ -31,7 +36,7 @@ class CreateList extends Component {
 //api call to static feelings
   async componentWillMount() {
 
-    const listResponse = await fetch('https://keeptheglow.herokuapp.com/api/static')
+    const listResponse = await fetch('http://localhost:8000/api/static')
     const listJSON = await listResponse.json()
 
     let lovedList = listJSON.slice(0, 7)
@@ -47,6 +52,7 @@ class CreateList extends Component {
 
     this.setState({items: items})
   }
+
 
   onSubmit = async (navigate) => {
 
@@ -71,7 +77,7 @@ class CreateList extends Component {
     let id = 1
 
       const response1 = await
-      fetch(`https://keeptheglow.herokuapp.com/api/users/${id}/feelings`, {
+      fetch(`http://localhost:8000/api/users/api/users/${id}/feelings`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -84,7 +90,25 @@ class CreateList extends Component {
     let response1JSON = await response1.json()
   }
 
+  sendList = () => {
+    console.log("Next works")
+    this.props.createList(this.state.lis)
+    this.props.navigation.navigate('CreateList1')
+  }
+
   render() {
+    const { navigate } = this.props.navigation
+    const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
+
+    // console.log("user from createlist0", user[0].id)
+
+    console.log(this.state, "state from createlist0")
+
+
+
+
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -148,7 +172,9 @@ class CreateList extends Component {
             <View style={Styles.sendFeedback}>
               <ButtonElement
                 buttonText="Next"
+                press={this.sendList}
               />
+
             </View>
           </View>
         </View>
@@ -157,5 +183,17 @@ class CreateList extends Component {
   }
 }
 
+//grabs data from store
+const mapStateToProps = state => {
+  return {
+    user: state.user.userData,
+  }
+}
 
-export default CreateList
+//takes dispatch, gives us access to that action to be triggered
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setUserData,
+  createList
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateList0)
