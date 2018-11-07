@@ -44,6 +44,7 @@ const login = t.struct({
   password: t.String,
 })
 
+
 class Login extends Component {
 
   constructor(props){
@@ -59,6 +60,7 @@ class Login extends Component {
 
   handleLogin = () => {
     const value = this._form.getValue()
+    // console.log("value:", value)
     const { email, password } = value
     firebase
       .auth()
@@ -131,7 +133,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-//takes dispatch, gives us access to that action to be triggered 
+//takes dispatch, gives us access to that action to be triggered
 const mapDispatchToProps = dispatch => bindActionCreators({
   setUserData
 }, dispatch)

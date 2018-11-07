@@ -9,6 +9,7 @@ const Form = t.form.Form
 
 const send = t.struct({
   feedback: t.String,
+  score: t.Number,
 })
 
 var options = {
@@ -34,16 +35,22 @@ class SendFeedback extends Component {
   }
 
   sliderChange(value) {
+
    this.setState(() => {
       return {
         value: parseFloat(value),
       }
     })
+
  }
 
+
   render() {
+     console.log("test")
     const { navigate } = this.props.navigation
     const {value} = this.state
+
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>

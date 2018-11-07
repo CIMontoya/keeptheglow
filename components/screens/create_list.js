@@ -4,7 +4,14 @@ import ButtonElement from '../reusable/button.js'
 import ListItem from '../reusable/listItem1.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select'
+import t from 'tcomb-form-native'
 
+const Form = t.form.form
+
+const send = t.struct({
+  description: t.String,
+
+})
 class CreateList extends Component {
 
   static navigationOptions = {
@@ -21,7 +28,7 @@ class CreateList extends Component {
          progress: []
      }
  }
-
+//api call to static feelings
   async componentWillMount() {
 
     const listResponse = await fetch('https://keeptheglow.herokuapp.com/api/static')
@@ -85,13 +92,14 @@ class CreateList extends Component {
         <View style={Styles.body}>
           <View style={Styles.createList}>
             <Text
-              style={Styles.h1}>
+              style={Styles.h1black}>
               Gives: 1
             </Text>
             <Text
-              style={Styles.pCenter}>
-              What are the top 3 things that make you feel loved, respected and wanted? Give a description on why this is important to you, based on your passed experiences.
+              style={Styles.pCenterBlack}>
+              What are the top 3 things that make you feel loved, respected and wanted?Give a description on why this is important to you, based on your passed experiences.
             </Text>
+
             <View style={Styles.setting}>
               <View style={Styles.dropdown}>
                 <RNPickerSelect
@@ -114,7 +122,7 @@ class CreateList extends Component {
 
             <TextInput
               placeholder='Or create your own...'
-              style={Styles.textInput}
+              style={Styles.textInputDark}
               onChangeText={(value) => {
                 this.setState({
                   new: value,
@@ -138,7 +146,9 @@ class CreateList extends Component {
             <View style={Styles.spacerMedium}></View>
 
             <View style={Styles.sendFeedback}>
-              <ButtonElement/>
+              <ButtonElement
+                buttonText="Next"
+              />
             </View>
           </View>
         </View>

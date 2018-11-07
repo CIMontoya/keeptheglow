@@ -63,9 +63,10 @@ const RootStack = SwitchNavigator(
     ReceiveFeedback,
     DeleteAccount,
     RemovePartner,
-    EditLoved,
-    EditUnLoved,
-    EditAccount,
+    // EditLoved,
+    // EditUnLoved,
+    // EditAccount,
+
     Gives0,
     Gives1,
     Gives2,
@@ -87,7 +88,7 @@ const RootStack = SwitchNavigator(
     CreateList
   },
   {
-    initialRouteName: 'Loader'
+    initialRouteName: 'CreateList'
   }
 )
 

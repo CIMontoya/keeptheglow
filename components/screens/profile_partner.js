@@ -49,7 +49,7 @@ class Partner extends Component {
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
-console.log("partnerFeelings from partner profile", partnerFeelings)
+// console.log("partnerFeelings from partner profile", partnerFeelings)
 
     let lovedList
     let unlovedList
