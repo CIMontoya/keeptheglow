@@ -60,7 +60,7 @@ class Login extends Component {
 
   handleLogin = () => {
     const value = this._form.getValue()
-    console.log("value:", value)
+    // console.log("value:", value)
     const { email, password } = value
     firebase
       .auth()

@@ -48,8 +48,12 @@ class User extends Component {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
+    const scores = this.props.scores
+    const staticFeelings = this.props.staticFeelings
+    console.log(this.props, "props from profile user")
+    console.log('static', staticFeelings)
 
-console.log("user from profile_user", userFeelings)
+    console.log("profile_user", userFeelings)
 
     let lovedList
     let unlovedList
@@ -124,7 +128,7 @@ console.log("user from profile_user", userFeelings)
                 style={Styles.icons}
                 source={require('../../assets/icons/plus_bare.png')}
               />
-              <Text>GIVES</Text>
+              <Text>USER GIVES</Text>
               <View style={Styles.spacerLarge}></View>
               {lovedList.map((feeling, index) =>
                 <View>
@@ -146,7 +150,7 @@ console.log("user from profile_user", userFeelings)
                 style={Styles.icons}
                 source={require('../../assets/icons/minus_bare.png')}
               />
-              <Text>TAKES</Text>
+              <Text>USER TAKES</Text>
               <View style={Styles.spacerLarge}></View>
               {unlovedList.map((feeling, index) =>
                 <View>
@@ -174,7 +178,8 @@ console.log("user from profile_user", userFeelings)
 const mapStateToProps = state => {
   return {
     user: state.user.userData,
-    scores: state.user.scores
+    scores: state.user.scores,
+    staticFeelings: state.user.staticFeelings
   }
 }
 

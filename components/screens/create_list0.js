@@ -12,10 +12,10 @@ import { setUserData, createList } from '../../actions/user.js'
 
 const Form = t.form.form
 
-const Send = t.struct({
-  description: t.String,
-
-})
+// const Send = t.struct({
+//   description: t.String,
+//
+// })
 class CreateList0 extends Component {
 
   static navigationOptions = {

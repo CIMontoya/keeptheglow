@@ -29,9 +29,11 @@ class FeedbackGives0 extends Component {
     const { navigate } = this.props.navigation
     const {value} = this.state
     const {  user, userFeelings} = this.props.user
+    const { scores } = this.props.scores
 
 
     console.log(userFeelings, "userFeelings")
+    console.log('scores from feedback page', scores)
     let loved0
 
     if(userFeelings){
@@ -115,7 +117,8 @@ class FeedbackGives0 extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.userData,
-    scores: state.user.scores
+    scores: state.user.scores,
+    staticFeelings: state.user.staticFeelings
   }
 }
 

@@ -103,7 +103,7 @@ class CreateList1 extends Component {
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
 console.log(this.state, "state from create list1")
-
+console.log(userFeelings, "props from create list1")
 
 
     return (
