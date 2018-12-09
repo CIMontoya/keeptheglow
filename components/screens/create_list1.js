@@ -8,7 +8,7 @@ import RNPickerSelect from 'react-native-picker-select'
 import t from 'tcomb-form-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setUserData, createList } from '../../actions/user.js'
+import { setUserData, createListItem} from '../../actions/user.js'
 
 const Form = t.form.form
 
@@ -28,73 +28,24 @@ class CreateList1 extends Component {
      this.state = {
          list: '',
          gives: '',
-         items: [],
-         new: [],
+         name: [],
          progress: []
      }
  }
-//api call to static feelings
-  async componentWillMount() {
 
-    const listResponse = await fetch('http://localhost:8000/api/static')
-    const listJSON = await listResponse.json()
+  storeListItem = () => {
 
-    let lovedList = listJSON.slice(0, 7)
-    let items = []
-
-    lovedList.map((item) => {
-      let obj = {
-        label: item.name,
-        value: item.name
-      }
-      items.push(obj)
-    })
-
-    this.setState({items: items})
-  }
-
-
-  onSubmit = async (navigate) => {
-
-    const newFeeling = {
-      description: null,
+    listItem = {
+      name: this.state.name,
+      description: this.state.description,
       is_loved: true,
-      is_default: true
     }
 
-    if(this.state.new.length){
-      newFeeling.name = this.state.new
-      newFeeling.is_default = false
-    } else {
-      newFeeling.name = this.state.suggested
-    }
+    console.log(this.props.createListItem, "loved feeling 2")
 
-    if(this.state.description){
-      newFeeling.description = this.state.description
-    }
+    this.props.createListItem(listItem)
+    this.props.navigation.navigate('LovedFeeling3')
 
-    // update id to come from store
-    let id = 1
-
-      const response1 = await
-      fetch(`http://localhost:8000/api/users/api/users/${id}/feelings`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newFeeling)
-      })
-
-
-    let response1JSON = await response1.json()
-  }
-
-  sendList = () => {
-    console.log("Next works"
-    )
-    this.props.createList(this.state.list)
-    this.props.navigation.navigate('CreateList1')
 
   }
 
@@ -102,9 +53,24 @@ class CreateList1 extends Component {
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
-console.log(this.state, "state from create list1")
-console.log(userFeelings, "props from create list1")
+    const staticFeelings = this.props.staticFeelings
 
+    let lovedStaticFeelings
+    let items = []
+
+    if(staticFeelings) {
+      lovedStaticFeelings = staticFeelings.filter(feeling => feeling.is_loved === true)
+    }
+
+    lovedStaticFeelings.map((item) => {
+      let obj = {
+        label: item.name,
+        value: item.name
+      }
+      items.push(obj)
+    })
+
+console.log(this.props.list_items, "Loved Feeling 2")
 
     return (
       <View style={Styles.container}>
@@ -129,10 +95,10 @@ console.log(userFeelings, "props from create list1")
                     label: 'Choose from list...',
                     value: null
                   }}
-                  items={this.state.items}
+                  items={items}
                   onValueChange={(value) => {
                     this.setState({
-                      suggested: value,
+                      name: value,
                     })
                   }}>
                 </RNPickerSelect>
@@ -146,7 +112,7 @@ console.log(userFeelings, "props from create list1")
               style={Styles.textInputDark}
               onChangeText={(value) => {
                 this.setState({
-                  new: value,
+                  name: value,
                 })
               }}>
             </TextInput>
@@ -169,7 +135,7 @@ console.log(userFeelings, "props from create list1")
             <View style={Styles.sendFeedback}>
               <ButtonElement
                 buttonText="Next"
-                press={this.sendList}
+                press={this.storeListItem}
               />
             </View>
           </View>
@@ -183,13 +149,15 @@ console.log(userFeelings, "props from create list1")
 const mapStateToProps = state => {
   return {
     user: state.user.userData,
+    staticFeelings: state.user.staticFeelings,
+    list_items: state.user.createList
   }
 }
 
 //takes dispatch, gives us access to that action to be triggered
 const mapDispatchToProps = dispatch => bindActionCreators({
   setUserData,
-  createList
+  createListItem
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateList1)

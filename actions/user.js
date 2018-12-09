@@ -4,8 +4,6 @@ export const CREATE_LIST = 'CREATE_LIST'
 export const CREATE_LIST_FAILED = 'CREATE_LIST_FAILED'
 
 
-
-
 export const setUserData = (email) => {
   return async dispatch => {
     try {
@@ -30,7 +28,6 @@ export const setUserData = (email) => {
       let staticFeelings = await staticFeelingsResponse.json()
       // console.log('staticFeelings from actions', staticFeelings )
 
-
       dispatch({
         type: GET_USER_SUCCESS,
         user: userData,
@@ -47,9 +44,11 @@ export const setUserData = (email) => {
   }
 }
 
-export const createList = list => {
-  return {
-    type: CREATE_LIST,
-    createList: createList
+export const createListItem = list_item => {
+  return dispatch => {
+    dispatch({
+        type: CREATE_LIST,
+        list_item: list_item,
+      })
   }
 }

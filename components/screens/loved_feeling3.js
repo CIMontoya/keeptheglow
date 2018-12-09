@@ -8,16 +8,15 @@ import RNPickerSelect from 'react-native-picker-select'
 import t from 'tcomb-form-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { setUserData, createListItem } from '../../actions/user.js'
+import { setUserData, createListItem} from '../../actions/user.js'
 
 const Form = t.form.form
 
-// const Send = t.struct({
-//   description: t.String,
-//
-// })
+const Send = t.struct({
+  description: t.String,
 
-class CreateList0 extends Component {
+})
+class LovedFeeling3 extends Component {
 
   static navigationOptions = {
    header: null
@@ -29,13 +28,12 @@ class CreateList0 extends Component {
      this.state = {
          list: '',
          gives: '',
-         name: '',
+         name: [],
          progress: []
      }
  }
 
   storeListItem = () => {
-
 
     listItem = {
       name: this.state.name,
@@ -43,15 +41,14 @@ class CreateList0 extends Component {
       is_loved: true,
     }
 
-    console.log(this.props.createListItem, "loved feeling 1")
 
     this.props.createListItem(listItem)
-    this.props.navigation.navigate('CreateList1')
+    this.props.navigation.navigate('UnlovedFeeling1')
+
 
   }
 
   render() {
-
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
@@ -71,7 +68,9 @@ class CreateList0 extends Component {
       }
       items.push(obj)
     })
-console.log(this.props.list_items, "Loved Feeling 1")
+
+console.log(this.props.list_items, "Loved Feeling 3")
+
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -80,7 +79,7 @@ console.log(this.props.list_items, "Loved Feeling 1")
           <View style={Styles.createList}>
             <Text
               style={Styles.h1black}>
-              Gives: 1
+              Gives: 3
             </Text>
             <Text
               style={Styles.pCenterBlack}>
@@ -137,7 +136,6 @@ console.log(this.props.list_items, "Loved Feeling 1")
                 buttonText="Next"
                 press={this.storeListItem}
               />
-
             </View>
           </View>
         </View>
@@ -146,7 +144,7 @@ console.log(this.props.list_items, "Loved Feeling 1")
   }
 }
 
-//grabs DATA from store
+//grabs data from store
 const mapStateToProps = state => {
   return {
     user: state.user.userData,
@@ -155,10 +153,10 @@ const mapStateToProps = state => {
   }
 }
 
-//functions from actions that we can call here
+//takes dispatch, gives us access to that action to be triggered
 const mapDispatchToProps = dispatch => bindActionCreators({
   setUserData,
   createListItem
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateList0)
+export default connect(mapStateToProps, mapDispatchToProps)(LovedFeeling3)

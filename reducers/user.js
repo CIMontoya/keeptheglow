@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   userData: {},
+  createList: []
 
 }
 
@@ -17,7 +18,7 @@ export default (state = initialState, action) => {
     case GET_USER_FAILED:
       return action.value
     case CREATE_LIST:
-      return { ...state, createList: action.createList}
+      return { ...state, createList: [...state.createList, action.list_item]}
     case CREATE_LIST_FAILED:
       return action.value
     default:

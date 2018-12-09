@@ -49,12 +49,8 @@ class Partner extends Component {
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
-// console.log("partnerFeelings from partner profile", partnerFeelings)
-
     let lovedList
     let unlovedList
-
-    // console.log(partnerFeelings, "partner")
 
     if(partnerFeelings){
         lovedList = partnerFeelings.filter(feeling => feeling.is_loved === true)

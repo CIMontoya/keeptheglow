@@ -34,6 +34,7 @@ class User extends Component {
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
     this.props.setUserData(currentUser && currentUser.email)
+
   }
 
   // getPhotosFromGallery() {
@@ -48,12 +49,13 @@ class User extends Component {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
     const scores = this.props.scores
     const staticFeelings = this.props.staticFeelings
-    console.log(this.props, "props from profile user")
-    console.log('static', staticFeelings)
+    // console.log(this.props, "props from profile user")
+    // console.log('static', staticFeelings)
 
-    console.log("profile_user", userFeelings)
+    // console.log("profile_user", userFeelings)
 
     let lovedList
     let unlovedList

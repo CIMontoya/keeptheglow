@@ -45,6 +45,10 @@ import FeedbackGives2 from './components/screens/feedback_gives2.js'
 
 import CreateList0 from './components/screens/create_list0.js'
 import CreateList1 from './components/screens/create_list1.js'
+import LovedFeeling3 from './components/screens/loved_feeling3.js'
+import UnlovedFeeling1 from './components/screens/unloved_feeling1.js'
+import UnlovedFeeling2 from './components/screens/unloved_feeling2.js'
+import UnlovedFeeling3 from './components/screens/unloved_feeling3.js'
 
 import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
@@ -86,8 +90,14 @@ const RootStack = SwitchNavigator(
     FeedbackGives1,
     FeedbackGives2,
     Intro,
+
     CreateList0,
-    CreateList1
+    CreateList1,
+    LovedFeeling3,
+    UnlovedFeeling1,
+    UnlovedFeeling2,
+    UnlovedFeeling3
+
   },
   {
     initialRouteName: 'Loader'
