@@ -19,6 +19,7 @@ class AddPartner extends Component {
 
   onSubmit = async (navigate) => {
 
+    //id's need to come from store
     const newPartner = {
       user1_id: 1,
       user2_id: 2

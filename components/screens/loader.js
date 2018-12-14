@@ -13,7 +13,7 @@ class Loader extends Component {
 
   componentDidMount(){
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Intro' : 'Signup')
+      this.props.navigation.navigate(user ? 'User' : 'Signup')
     })
 
   }

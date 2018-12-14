@@ -6,6 +6,8 @@ import t from 'tcomb-form-native'
 import firebase from 'react-native-firebase'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { setUserData, createUser } from '../../actions/user.js'
+
 
 const Form = t.form.Form
 
@@ -52,8 +54,11 @@ class Signup extends Component {
 
   handleSignup = () => {
     const value = this._form.getValue()
-    const { email, password } = value
-    console.log(value, "value")
+    const { email, password, name } = value
+
+    this.props.createUser(email, name)
+
+
     firebase
       .auth()
       .createUserAndRetrieveDataWithEmailAndPassword(email, password)
@@ -118,4 +123,9 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  createUser
+}, dispatch)
+
+export default connect(mapDispatchToProps,mapDispatchToProps) (Signup)

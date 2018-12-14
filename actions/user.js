@@ -2,6 +2,47 @@ export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 export const GET_USER__FAILED = 'GET_USER_FAILED'
 export const CREATE_LIST = 'CREATE_LIST'
 export const CREATE_LIST_FAILED = 'CREATE_LIST_FAILED'
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
+export const CREATE_USER_FAILED = 'CREATE_USER_FAILED'
+
+export const createUser = (email, name) => {
+  return async dispatch => {
+    try {
+
+      let newUser = {
+        name,
+        email
+      }
+      
+console.log(newUser, "new user")
+
+      let userResponse = await fetch('https://keeptheglow.herokuapp.com/api/users', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newUser)
+      })
+      let responseJSON = await response.json()
+
+      console.log("response", responseJSON)
+
+      dispatch({
+        type: GET_USER_SUCCESS,
+        user: userData,
+      })
+    }
+    catch (err) {
+      dispatch({
+        type: CREATE_USER_FAILED,
+        value: err
+      })
+    }
+
+  }
+
+}
 
 
 export const setUserData = (email) => {

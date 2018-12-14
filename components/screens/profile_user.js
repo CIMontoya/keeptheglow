@@ -57,7 +57,7 @@ class User extends Component {
     // console.log(this.props, "props from profile user")
     // console.log('static', staticFeelings)
 
-    // console.log("profile_user", userFeelings)
+    console.log("user", user)
 
     let lovedList
     let unlovedList
