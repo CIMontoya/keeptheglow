@@ -14,6 +14,7 @@ import Login from './components/screens/login.js'
 import User from './components/screens/profile_user.js'
 import Partner from './components/screens/profile_partner.js'
 import Settings from './components/screens/settings.js'
+import AddPartner from './components/screens/auth_addPartner.js'
 // import ProgressGives from './components/screens/progress_gives.js'
 // import ProgressTakes from './components/screens/progress_takes.js'
 import ReceiveFeedback from './components/screens/feedback_receive.js'
@@ -43,7 +44,12 @@ import FeedbackGives0 from './components/screens/feedback_gives0.js'
 import FeedbackGives1 from './components/screens/feedback_gives1.js'
 import FeedbackGives2 from './components/screens/feedback_gives2.js'
 
-import CreateList from './components/screens/create_list.js'
+import CreateList0 from './components/screens/create_list0.js'
+import CreateList1 from './components/screens/create_list1.js'
+import LovedFeeling3 from './components/screens/loved_feeling3.js'
+import UnlovedFeeling1 from './components/screens/unloved_feeling1.js'
+import UnlovedFeeling2 from './components/screens/unloved_feeling2.js'
+import UnlovedFeeling3 from './components/screens/unloved_feeling3.js'
 
 import SendFeedback from './components/screens/feedback_send.js'
 import Intro from './components/screens/intro.js'
@@ -57,6 +63,7 @@ const RootStack = SwitchNavigator(
     Login,
     User,
     Settings,
+    AddPartner,
     // ProgressGives,
     // ProgressTakes,
     Partner,
@@ -85,10 +92,17 @@ const RootStack = SwitchNavigator(
     FeedbackGives1,
     FeedbackGives2,
     Intro,
-    CreateList
+
+    CreateList0,
+    CreateList1,
+    LovedFeeling3,
+    UnlovedFeeling1,
+    UnlovedFeeling2,
+    UnlovedFeeling3
+
   },
   {
-    initialRouteName: 'CreateList'
+    initialRouteName: 'Loader'
   }
 )
 

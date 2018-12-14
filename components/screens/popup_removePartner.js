@@ -15,10 +15,10 @@ class RemovePartner extends Component {
   static navigationOptions = {
    header: null
   }
-
   onSubmit = async () => {
     // replace id with data from the store
     let id = 2
+
     const deleteCouple = await fetch(`https://keeptheglow.herokuapp.com/api/couples/${id}`, {
       method: 'DELETE',
       headers: {

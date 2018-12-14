@@ -53,6 +53,7 @@ class Signup extends Component {
   handleSignup = () => {
     const value = this._form.getValue()
     const { email, password } = value
+    console.log(value, "value")
     firebase
       .auth()
       .createUserAndRetrieveDataWithEmailAndPassword(email, password)

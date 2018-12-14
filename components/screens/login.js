@@ -70,8 +70,10 @@ class Login extends Component {
   }
 
   render() {
+
     const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
+
     return (
       <ImageBackground
         source={pic}

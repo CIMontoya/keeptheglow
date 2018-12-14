@@ -49,12 +49,8 @@ class Partner extends Component {
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
 
-// console.log("partnerFeelings from partner profile", partnerFeelings)
-
     let lovedList
     let unlovedList
-
-    // console.log(partnerFeelings, "partner")
 
     if(partnerFeelings){
         lovedList = partnerFeelings.filter(feeling => feeling.is_loved === true)
@@ -127,7 +123,7 @@ class Partner extends Component {
                 style={Styles.icons}
                 source={require('../../assets/icons/plus_bare.png')}
               />
-              <Text>GIVES</Text>
+              <Text>PARTNER'S GIVES</Text>
               <View style={Styles.spacerLarge}></View>
               {lovedList.map((feeling, index) =>
                 <View>
@@ -149,7 +145,7 @@ class Partner extends Component {
                 style={Styles.icons}
                 source={require('../../assets/icons/minus_bare.png')}
               />
-              <Text>TAKES</Text>
+              <Text>PARTNER'S TAKES</Text>
               <View style={Styles.spacerLarge}></View>
               {unlovedList.map((feeling, index) =>
                 <View>
