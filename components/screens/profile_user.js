@@ -33,6 +33,7 @@ class User extends Component {
   componentWillMount(){
     const { currentUser } = firebase.auth()
     this.setState({ currentUser })
+    console.log(currentUser, 'current user')
     this.props.setUserData(currentUser && currentUser.email)
 
   }
@@ -49,6 +50,7 @@ class User extends Component {
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
 
     const scores = this.props.scores
     const staticFeelings = this.props.staticFeelings

@@ -8,15 +8,15 @@ export const setUserData = (email) => {
   return async dispatch => {
     try {
       // if API is down, pull data locally to test
-      // fetch(`http://localhost:8000/api/users/${email}`)
       let userResponse = await fetch(`https:/keeptheglow.herokuapp.com/api/users/${email}`)
+
       let userData = await userResponse.json()
 
-      // console.log("userData from actions.user.js", userData)
+      console.log("userData from actions.user.js", userData)
 
       let id = userData.user[0].id
 
-      // console.log(id, "id from actions.user.js")
+      console.log(id, "id from actions.user.js")
 
       let scoresResponse = await fetch(`https:/keeptheglow.herokuapp.com/api/users/${id}/scores`)
 

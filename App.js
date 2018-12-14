@@ -14,6 +14,7 @@ import Login from './components/screens/login.js'
 import User from './components/screens/profile_user.js'
 import Partner from './components/screens/profile_partner.js'
 import Settings from './components/screens/settings.js'
+import AddPartner from './components/screens/auth_addPartner.js'
 // import ProgressGives from './components/screens/progress_gives.js'
 // import ProgressTakes from './components/screens/progress_takes.js'
 import ReceiveFeedback from './components/screens/feedback_receive.js'
@@ -62,6 +63,7 @@ const RootStack = SwitchNavigator(
     Login,
     User,
     Settings,
+    AddPartner,
     // ProgressGives,
     // ProgressTakes,
     Partner,

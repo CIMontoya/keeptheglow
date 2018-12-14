@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import { Text, TextInput, View, Image } from 'react-native'
+import { Text, TextInput, View, Image, TouchableOpacity } from 'react-native'
 import Styles from '../styles.js'
 import ButtonElement from '../reusable/button.js'
+import Button from 'react-native-button'
 
 
 class Intro extends Component {
@@ -16,13 +17,18 @@ class Intro extends Component {
 
 
   render() {
+    const { navigate } = this.props.navigation
+
     return (
       <View style={Styles.container}>
         <View style={Styles.backHeader}>
-          <Image
-            style={Styles.backButton}
-            source={require('../../assets/icons/back.png')}
-          />
+          <TouchableOpacity
+            onPress={() => navigate('User')}>
+            <Image
+              style={Styles.backButton}
+              source={require('../../assets/icons/back.png')}
+            />
+          </TouchableOpacity>
         </View>
         <View style={Styles.body}>
           <View style={Styles.createList}>
@@ -74,8 +80,16 @@ class Intro extends Component {
           <View style={Styles.createList}>
 
             <View style={Styles.spacerSmall}></View>
-            <ButtonElement
-              buttonText="Let's get started"/>
+
+            <Button
+              style={Styles.buttonText}
+              containerStyle={Styles.buttonBox}
+              onPress={() => navigate('AddPartner')}
+
+              title='Next'>
+              Next
+            </Button>
+
           </View>
           <View style={Styles.spacerLarge}></View>
             <View style={Styles.sendFeedback}>
@@ -85,5 +99,10 @@ class Intro extends Component {
     )
   }
 }
+
+<ButtonElement
+  buttonText="Let's get started"
+  onPress={() => navigate('user')}
+/>
 
 export default Intro

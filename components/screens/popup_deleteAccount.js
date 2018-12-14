@@ -16,11 +16,11 @@ class DeleteAccount extends Component {
   static navigationOptions = {
    header: null
  }
-// https://keeptheglow.herokuapp.com/api/users/
+ 
  onSubmit = async () => {
    let id = this.props.userId
    const deleteUser = await
-    fetch(`http://localhost:8000/api/users${id}`, {
+    fetch(`https://keeptheglow.herokuapp.com/api/users${id}`, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
