@@ -45,6 +45,7 @@ class User extends Component {
   }
 
   render() {
+    console.log('hey guys I"m ramling')
     const { currentUser } = this.state
     const { navigate } = this.props.navigation
     const { user, userFeelings, partner, partnerFeelings } = this.props.user
