@@ -20,6 +20,7 @@ const Styles = {
     paddingTop: 10
   },
 
+
   backHeader : {
     flex: 1,
     flexDirection: 'row',
@@ -173,6 +174,16 @@ const Styles = {
     height: 40,
     padding: 10,
   },
+  textInputDark: {
+    color: 'black',
+    fontWeight: '700',
+    borderWidth: 1,
+    borderRadius: 2,
+    borderColor: 'grey',
+    width: 300,
+    height: 40,
+    padding: 10,
+  },
 
   h1: {
     color: 'white',
@@ -273,6 +284,7 @@ const Styles = {
   },
 
   dropdown: {
+    fontWeight: '700',
     backgroundColor: 'white',
     borderColor: 'grey',
     borderWidth: 1,
@@ -283,6 +295,7 @@ const Styles = {
     alignItems: 'center',
     padding: 10
   },
+
 
   navigation: {
     flexDirection: 'row',
@@ -324,6 +337,7 @@ const Styles = {
     },
 
     addDescription: {
+      fontWeight: '700',
       height: 150,
       width: 300,
       borderWidth: 3,

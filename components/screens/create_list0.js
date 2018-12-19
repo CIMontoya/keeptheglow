@@ -1,11 +1,23 @@
 import React, {Component} from 'react'
 import { Text, TextInput, View, Image } from 'react-native'
 import ButtonElement from '../reusable/button.js'
+import Button from 'react-native-button'
 import ListItem from '../reusable/listItem1.js'
 import Styles from '../styles.js'
 import RNPickerSelect from 'react-native-picker-select'
+import t from 'tcomb-form-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { setUserData, createListItem } from '../../actions/user.js'
 
-class CreateList extends Component {
+const Form = t.form.form
+
+// const Send = t.struct({
+//   description: t.String,
+//
+// })
+
+class CreateList0 extends Component {
 
   static navigationOptions = {
    header: null
@@ -15,69 +27,51 @@ class CreateList extends Component {
      super(props)
 
      this.state = {
+         list: '',
          gives: '',
-         items: [],
-         new: [],
+         name: '',
          progress: []
      }
  }
 
-  async componentWillMount() {
+  storeListItem = () => {
 
-    const listResponse = await fetch('https://keeptheglow.herokuapp.com/api/static')
-    const listJSON = await listResponse.json()
 
-    let lovedList = listJSON.slice(0, 7)
+    listItem = {
+      name: this.state.name,
+      description: this.state.description,
+      is_loved: true,
+    }
+
+    console.log(this.props.createListItem, "loved feeling 1")
+
+    this.props.createListItem(listItem)
+    this.props.navigation.navigate('CreateList1')
+
+  }
+
+  render() {
+
+    const { navigate } = this.props.navigation
+    const { user, userFeelings, partner, partnerFeelings } = this.props.user
+
+    const staticFeelings = this.props.staticFeelings
+
+    let lovedStaticFeelings
     let items = []
 
-    lovedList.map((item) => {
+    if(staticFeelings) {
+      lovedStaticFeelings = staticFeelings.filter(feeling => feeling.is_loved === true)
+    }
+
+    lovedStaticFeelings.map((item) => {
       let obj = {
         label: item.name,
         value: item.name
       }
       items.push(obj)
     })
-
-    this.setState({items: items})
-  }
-
-  onSubmit = async (navigate) => {
-
-    const newFeeling = {
-      description: null,
-      is_loved: true,
-      is_default: true
-    }
-
-    if(this.state.new.length){
-      newFeeling.name = this.state.new
-      newFeeling.is_default = false
-    } else {
-      newFeeling.name = this.state.suggested
-    }
-
-    if(this.state.description){
-      newFeeling.description = this.state.description
-    }
-
-    // update id to come from store
-    let id = 1
-
-      const response1 = await
-      fetch(`https://keeptheglow.herokuapp.com/api/users/${id}/feelings`, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newFeeling)
-      })
-
-
-    let response1JSON = await response1.json()
-  }
-
-  render() {
+console.log(this.props.list_items, "Loved Feeling 1")
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
@@ -85,13 +79,14 @@ class CreateList extends Component {
         <View style={Styles.body}>
           <View style={Styles.createList}>
             <Text
-              style={Styles.h1}>
+              style={Styles.h1black}>
               Gives: 1
             </Text>
             <Text
-              style={Styles.pCenter}>
-              What are the top 3 things that make you feel loved, respected and wanted? Give a description on why this is important to you, based on your passed experiences.
+              style={Styles.pCenterBlack}>
+              What are the top 3 things that make you feel loved, respected and wanted?Give a description on why this is important to you, based on your passed experiences.
             </Text>
+
             <View style={Styles.setting}>
               <View style={Styles.dropdown}>
                 <RNPickerSelect
@@ -100,10 +95,10 @@ class CreateList extends Component {
                     label: 'Choose from list...',
                     value: null
                   }}
-                  items={this.state.items}
+                  items={items}
                   onValueChange={(value) => {
                     this.setState({
-                      suggested: value,
+                      name: value,
                     })
                   }}>
                 </RNPickerSelect>
@@ -114,10 +109,10 @@ class CreateList extends Component {
 
             <TextInput
               placeholder='Or create your own...'
-              style={Styles.textInput}
+              style={Styles.textInputDark}
               onChangeText={(value) => {
                 this.setState({
-                  new: value,
+                  name: value,
                 })
               }}>
             </TextInput>
@@ -138,7 +133,11 @@ class CreateList extends Component {
             <View style={Styles.spacerMedium}></View>
 
             <View style={Styles.sendFeedback}>
-              <ButtonElement/>
+              <ButtonElement
+                buttonText="Next"
+                press={this.storeListItem}
+              />
+
             </View>
           </View>
         </View>
@@ -147,5 +146,19 @@ class CreateList extends Component {
   }
 }
 
+//grabs DATA from store
+const mapStateToProps = state => {
+  return {
+    user: state.user.userData,
+    staticFeelings: state.user.staticFeelings,
+    list_items: state.user.createList
+  }
+}
 
-export default CreateList
+//functions from actions that we can call here
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setUserData,
+  createListItem
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateList0)

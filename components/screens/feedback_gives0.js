@@ -28,20 +28,25 @@ class FeedbackGives0 extends Component {
   render() {
     const { navigate } = this.props.navigation
     const {value} = this.state
-    const { user, userFeelings } = this.props.user
+    const {  user, userFeelings} = this.props.user
+    const { scores } = this.props.scores
 
+
+    console.log(userFeelings, "userFeelings")
+    console.log('scores from feedback page', scores)
     let loved0
 
     if(userFeelings){
         loved = userFeelings.filter(feeling => feeling.is_loved === true)
         loved0 = loved[0]
+        console.log("loved0", loved0)
     }
 
     return (
       <View style={Styles.container}>
         <View style={Styles.header}>
           <TouchableOpacity
-            onPress={()=>navigate('User')}>
+            onPress={()=>navigate('Partner')}>
             <Image
               style={Styles.closeButton}
               source={require('../../assets/icons/close.png')}
@@ -112,7 +117,8 @@ class FeedbackGives0 extends Component {
 const mapStateToProps = state => {
   return {
     user: state.user.userData,
-    scores: state.user.scores
+    scores: state.user.scores,
+    staticFeelings: state.user.staticFeelings
   }
 }
 

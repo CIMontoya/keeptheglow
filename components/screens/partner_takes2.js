@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import { Text, View, Image, TouchableOpacity } from 'react-native'
+import { Text, View } from 'react-native'
 import Popup from '../reusable/popup.js'
 import Styles from '../styles.js'
 import { connect } from 'react-redux'
 
-class Gives4 extends Component {
+class PartnerTakes2 extends Component {
 
   constructor(props){
     super(props)
@@ -19,21 +19,20 @@ class Gives4 extends Component {
 
   render() {
     const { navigate } = this.props.navigation
-    // const { partnerFeelings } = this.props.user
-    //
-    // let loved0
-    //
-    // if(partnerFeelings){
-    //     console.log(this.props.user)
-    //     loved = partnerFeelings.filter(feeling => feeling.is_loved === true)
-    //     loved0 = loved[0]
-    //
-    // }
+    const { partner, partnerFeelings } = this.props.user
+
+    let unloved2
+
+    if(partnerFeelings){
+      unloved = partnerFeelings.filter(feeling => feeling.is_loved === false)
+      unloved2 = unloved[2]
+
+    }
 
     return (
       <Popup
-        header='Adoration'
-        content='I love it when you express your love through physical touch.'
+        header={unloved2.name}
+        content={unloved2.description}
         nav={navigate}
         screen="Partner"
       />
@@ -48,4 +47,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Gives4)
+export default connect(mapStateToProps)(PartnerTakes2)

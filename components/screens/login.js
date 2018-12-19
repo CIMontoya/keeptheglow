@@ -44,6 +44,7 @@ const login = t.struct({
   password: t.String,
 })
 
+
 class Login extends Component {
 
   constructor(props){
@@ -59,6 +60,7 @@ class Login extends Component {
 
   handleLogin = () => {
     const value = this._form.getValue()
+    // console.log("value:", value)
     const { email, password } = value
     firebase
       .auth()
@@ -68,8 +70,10 @@ class Login extends Component {
   }
 
   render() {
+
     const pic = require('../../assets/gradient_dark.png')
     const { navigate } = this.props.navigation
+
     return (
       <ImageBackground
         source={pic}
@@ -124,12 +128,14 @@ class Login extends Component {
   }
 }
 
+//grabs data from store
 const mapStateToProps = (state) => {
   return {
     userData: state.userData
   }
 }
 
+//takes dispatch, gives us access to that action to be triggered
 const mapDispatchToProps = dispatch => bindActionCreators({
   setUserData
 }, dispatch)

@@ -23,7 +23,8 @@ class BottomNav extends Component {
           nav={this.props.nav}/>
         <NavItem
           src={require('../../assets/icons/feedback_quote.png')}
-          press='ReceiveFeedback'
+          press='CreateList0'
+          // 'ReceiveFeedback'
           nav={this.props.nav}/>
       </View>
     )

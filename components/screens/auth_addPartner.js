@@ -24,7 +24,7 @@ class AddPartner extends Component {
       user2_id: 2
     }
 
-    const response = await fetch('https://keeptheglow.herokuapp.com/api/couples/', {
+    const response = await fetch('https://keeptheglow.herokuapp.com/api/couples', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

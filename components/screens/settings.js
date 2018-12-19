@@ -50,7 +50,16 @@ class Settings extends Component {
           <View style={Styles.user}>
             <View style={Styles.spacerLarge}></View>
             <View style={Styles.spacerLarge}></View>
-            <TouchableOpacity
+             <TouchableOpacity
+              style={Styles.setting}
+              onPress={()=>navigate('User')}>
+              <Setting text="Your List"/>
+              <Image
+                style={Styles.settingArrow}
+                source={require('../../assets/icons/smRightArrow.png')}
+              />
+            </TouchableOpacity>
+            {/* <TouchableOpacity
               style={Styles.setting}
               onPress={()=>navigate('EditLoved')}>
               <Setting text="Gives List"/>
@@ -78,7 +87,7 @@ class Settings extends Component {
                   style={Styles.settingArrow}
                   source={require('../../assets/icons/smRightArrow.png')}
                 />
-              </TouchableOpacity>
+              </TouchableOpacity> */}
               <View style={Styles.spacerLarge}></View>
               <View style={Styles.hr}></View>
               <View style={Styles.spacerLarge}></View>
